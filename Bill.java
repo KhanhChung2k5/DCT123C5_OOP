@@ -21,7 +21,6 @@ public class Bill {
         this.totalAmount = totalAmount;
     }
 
-    
     public Customer getCustomer() {
         return customer;
     }
@@ -72,13 +71,13 @@ public class Bill {
 
     @Override
     public String toString() {
-        return "Hóa đơn{" +
-                "Khách hàng=" + customer +
+        return "Bill{" +
+                "Customer=" + customer +
                 ", Laptop=" + laptop +
-                ", Nhân viên bán hàng=" + saler +
-                ", Mã hóa đơn='" + billId + '\'' +
-                ", Ngày='" + date + '\'' +
-                ", Tổng tiền=" + totalAmount +
+                ", Saler=" + saler +
+                ", Bill ID='" + billId + '\'' +
+                ", Date='" + date + '\'' +
+                ", Total amount=" + totalAmount +
                 '}';
     }
 }
