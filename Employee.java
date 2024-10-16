@@ -1,6 +1,6 @@
 package Project.Staff;
 
-public class Employee {
+public abstract class Employee {
     private String id;
     private String name;
     private String email;
