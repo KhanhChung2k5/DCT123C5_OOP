@@ -2,9 +2,11 @@ package Project.Staff;
 
 public class Manager extends Employee {
     private String department;
+    private double salaryCoefficient;
 
     // * Constructor */
-    public Manager(String id, String name, String email, String phoneNumber, String position, double salary, String department) {
+    public Manager(String id, String name, String email, String phoneNumber, String position, double salary,
+            String department) {
         super(id, name, email, phoneNumber, position, salary);
         this.department = department;
     }
@@ -18,6 +20,12 @@ public class Manager extends Employee {
     }
 
     @Override
+    public double calculateSalary() {
+        return getSalary() * salaryCoefficient; // Calculate salary based on the coefficient
+    }
+    
+
+    @Override
     public String toString() {
         return "Manager{" +
                 "id='" + getId() + '\'' +
@@ -27,7 +35,7 @@ public class Manager extends Employee {
                 ", position='" + getPosition() + '\'' +
                 ", salary=" + getSalary() +
                 ", department='" + department + '\'' +
+                ", salaryCoefficient=" + salaryCoefficient +
                 '}';
     }
 }
-

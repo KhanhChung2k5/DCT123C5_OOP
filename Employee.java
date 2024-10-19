@@ -66,6 +66,8 @@ public abstract class Employee {
         this.salary = salary;
     }
 
+    public abstract double calculateSalary(); //* */
+
     @Override
     public String toString() {
         return "Employee{" +
