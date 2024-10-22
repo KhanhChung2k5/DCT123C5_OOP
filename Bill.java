@@ -39,7 +39,11 @@ public class Bill {
     }
 
     public void setPhoneNumber(Customer phoneNumber) {
-        this.phoneNumber = phoneNumber;
+        if(phoneNumber>=10){
+            this.phoneNumber=phoneNumber
+        }else{
+            // logic error
+        }
     }
 
     public Laptop getLaptop() {
