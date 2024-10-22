@@ -2,9 +2,12 @@ package Project.Customer;
 
 import Project.Product.Laptop;
 import Project.Staff.Saler;
+//import Project.Customer.Customer;
 
 public class Bill {
+
     private Customer customer;
+    private Customer phoneNumber;
     private Laptop laptop;
     private Saler saler;
     private String billId;
@@ -12,8 +15,10 @@ public class Bill {
     private double totalAmount;
 
     // * Constructor */
-    public Bill(Customer customer, Laptop laptop, Saler saler, String billId, String date, double totalAmount) {
+    public Bill(Customer customer, Customer phoneNumber, Laptop laptop, Saler saler, String billId, String date,
+            double totalAmount) {
         this.customer = customer;
+        this.phoneNumber = phoneNumber;
         this.laptop = laptop;
         this.saler = saler;
         this.billId = billId;
@@ -27,6 +32,14 @@ public class Bill {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public Customer getPhoneNCustomer() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(Customer phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public Laptop getLaptop() {
@@ -73,11 +86,23 @@ public class Bill {
     public String toString() {
         return "Bill{" +
                 "Customer=" + customer +
+                ", Customer Phonenumber" + phoneNumber +
                 ", Laptop=" + laptop +
                 ", Saler=" + saler +
                 ", Bill ID='" + billId + '\'' +
                 ", Date='" + date + '\'' +
                 ", Total amount=" + totalAmount +
                 '}';
+    }
+
+    public void toInfo() {
+        System.out.println("Bill infomation: ");
+        System.out.println("Customer: " + customer.getName());
+        System.out.println("Customer Phonenumber: " + customer.getPhoneNumber());
+        System.out.println("Laptop: " + laptop.getModel());
+        System.out.println("Saler: " + saler.getName());
+        System.out.println("Bill ID: " + billId);
+        System.out.println("Date: " + date);
+        System.out.println("Total amount: " + totalAmount);
     }
 }
