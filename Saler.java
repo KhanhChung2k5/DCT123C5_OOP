@@ -37,4 +37,16 @@ public class Saler extends Employee {
                 ", productsSold=" + productsSold +
                 '}';
     }
+
+    public void toInfo(){
+        System.out.println("Saler infomation" );
+        System.out.println("ID: " + getId());
+        System.out.println("Name: " + getName());
+        System.out.println("email: " + getEmail()   );
+        System.out.println("Phone number: " + getPhoneNumber());
+        System.out.println("Position: " + getPosition());
+        System.out.println("Salary: " + calculateSalary());
+        System.out.println("Sales target: " + salesTarget);
+        System.out.println("Products sold:" + productsSold);
+    }
 }

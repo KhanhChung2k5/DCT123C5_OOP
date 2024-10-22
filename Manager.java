@@ -38,4 +38,16 @@ public class Manager extends Employee {
                 ", salaryCoefficient=" + salaryCoefficient +
                 '}';
     }
+
+    public void toInfo(){
+        System.out.println("Manager information");
+        System.out.println("ID:" + getId());
+        System.out.println("Name: " + getName());
+        System.out.println("email: " + getEmail()   );
+        System.out.println("Phone number: " + getPhoneNumber());
+        System.out.println("Position: " + getPosition());
+        System.out.println("Salary: " + calculateSalary());
+        System.out.println("Department: " + department);
+        System.out.println("Salary Cofficient: " + salaryCoefficient);
+    }
 }

@@ -67,6 +67,7 @@ public abstract class Employee {
     }
 
     public abstract double calculateSalary(); //* */
+    public abstract void toInfo();
 
     @Override
     public String toString() {
@@ -79,4 +80,6 @@ public abstract class Employee {
                 ", salary=" + salary +
                 '}';
     }
+
+    
 }
