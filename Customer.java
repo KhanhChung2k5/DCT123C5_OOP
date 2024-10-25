@@ -1,18 +1,29 @@
 package Project.Customer;
 
+import java.util.Scanner;
+
 public class Customer {
+    public static Customer[] data;
     private String id;
     private String name;
     private String email;
     private String phoneNumber;
     private String address;
 
-    //* Constructor */
+    // * Constructor */
     public Customer(String id, String name, String email, String phoneNumber, String address) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.phoneNumber = phoneNumber;
+        if (phoneNumber.length() == 10) {
+            System.out.println("SDT phai co 10 so.");
+            @SuppressWarnings("resource")
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Nhap lai sdt: ");
+            this.phoneNumber = scanner.nextLine();
+        } else {
+            this.phoneNumber = phoneNumber;
+        }
         this.address = address;
     }
 
@@ -45,7 +56,15 @@ public class Customer {
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+        if (phoneNumber.length() == 10) {
+            System.out.println("SDT phai co 10 so.");
+            @SuppressWarnings("resource")
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Nhap lai sdt: ");
+            this.phoneNumber = scanner.nextLine();
+        } else {
+            this.phoneNumber = phoneNumber;
+        }
     }
 
     public String getAddress() {
@@ -66,5 +85,14 @@ public class Customer {
                 ", address='" + address + '\'' +
                 '}';
     }
-    
+
+    public void toInfo() {
+        System.out.println("Customer Infomation");
+        System.out.println("Name: ");
+        System.out.println("Id: ");
+        System.out.println("email: ");
+        System.out.println("Phone number: ");
+        System.out.println("Address: ");
+    }
+
 }
