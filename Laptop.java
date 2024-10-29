@@ -10,10 +10,10 @@ public class Laptop extends Product {
     private double adapter;
     private String operatingSystem;
 
-    public Laptop(int id, String maker, double price, String type, double weight, String model, int warrantyPeriod,
+    public Laptop(String name,int id, String maker, double price, String type, double weight, String model, int warrantyPeriod,
                     String releaseDate, String processor, int ram, int storage, String graphicsCard, String color, 
                     int batteryLife, double screenSize, String operatingSystem, int graphicsMemory, double adapter) {
-        super(maker, price, type, weight, model, warrantyPeriod, releaseDate);
+        super(name,maker, price, type, weight, model, warrantyPeriod, releaseDate);
         this.id = id;
         this.processor = processor; 
         this.ram = ram;
@@ -24,6 +24,22 @@ public class Laptop extends Product {
         this.screenSize = screenSize;
         this.operatingSystem = operatingSystem;
         this.adapter = adapter;
+    }
+    
+    @Override
+    public void displaySpecifications() {
+        //Hiển thị thông số kỹ thuật chi tiết của laptop
+
+        System.out.println("Laptop Specifications:");
+        System.out.println("Processor: " + processor);
+        System.out.println("RAM: " + ram + "GB");
+        System.out.println("Storage: " + storage + "GB");
+        System.out.println("Graphics Card: " + graphicsCard);
+        System.out.println("Color: " + color);
+        System.out.println("Battery Life: " + batteryLife + " hours");
+        System.out.println("Screen Size: " + screenSize + " inches");
+        System.out.println("Operating System: " + operatingSystem);
+        System.out.println("Adapter: " + adapter + "W");
     }
 
     @Override
@@ -36,6 +52,9 @@ public class Laptop extends Product {
         System.out.println("Model: " + getModel());
         System.out.println("Warranty Period: " + getWarrantyPeriod() + " months");
         System.out.println("Release Date: " + getReleaseDate());
+        System.out.println("Name Laptop: " + getName());
+        displaySpecifications();
+        
     }
 
 
@@ -119,4 +138,5 @@ public class Laptop extends Product {
     public void setOperatingSystem(String operatingSystem) {
         this.operatingSystem = operatingSystem;
     }
+    
 }
