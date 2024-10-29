@@ -1,19 +1,22 @@
 package Project.Staff;
 
+import java.util.Scanner;
+
 public abstract class Employee {
     private String id;
     private String name;
     private String email;
-    private String phoneNumber;
+    private String phoneNumber; // Đảm bảo phoneNumber có tối đa 10 số
     private String position;
     private double salary;
 
     // * Constructor */
+    @SuppressWarnings("resource")
     public Employee(String id, String name, String email, String phoneNumber, String position, double salary) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.phoneNumber = phoneNumber;
+        setPhoneNumber(phoneNumber); //* */ Use the setter to validate the phone number
         this.position = position;
         this.salary = salary;
     }
@@ -46,7 +49,13 @@ public abstract class Employee {
         return phoneNumber;
     }
 
+    @SuppressWarnings("resource")
     public void setPhoneNumber(String phoneNumber) {
+        while (phoneNumber.length() == 10) { 
+            System.out.println("SDT phải có 10 số. Vui lòng nhập lại:");
+            Scanner scanner = new Scanner(System.in); 
+            phoneNumber = scanner.nextLine(); 
+        }
         this.phoneNumber = phoneNumber;
     }
 
@@ -66,7 +75,9 @@ public abstract class Employee {
         this.salary = salary;
     }
 
-    public abstract double calculateSalary(); //* */
+    // *DA HINH */
+    public abstract double calculateSalary();
+
     public abstract void toInfo();
 
     @Override
@@ -81,5 +92,4 @@ public abstract class Employee {
                 '}';
     }
 
-    
 }

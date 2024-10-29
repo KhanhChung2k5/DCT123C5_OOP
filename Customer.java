@@ -15,15 +15,7 @@ public class Customer {
         this.id = id;
         this.name = name;
         this.email = email;
-        if (phoneNumber.length() == 10) {
-            System.out.println("SDT phai co 10 so.");
-            @SuppressWarnings("resource")
-            Scanner scanner = new Scanner(System.in);
-            System.out.print("Nhap lai sdt: ");
-            this.phoneNumber = scanner.nextLine();
-        } else {
-            this.phoneNumber = phoneNumber;
-        }
+        setPhoneNumber(phoneNumber); //* */ Use the setter method to validate the phone number
         this.address = address;
     }
 
@@ -56,15 +48,14 @@ public class Customer {
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        if (phoneNumber.length() == 10) {
-            System.out.println("SDT phai co 10 so.");
+        while (phoneNumber.length() == 10) {
+            System.out.println("SDT phải có 10 số.");
             @SuppressWarnings("resource")
             Scanner scanner = new Scanner(System.in);
-            System.out.print("Nhap lai sdt: ");
-            this.phoneNumber = scanner.nextLine();
-        } else {
-            this.phoneNumber = phoneNumber;
+            System.out.print("Nhập lại sdt: ");
+            phoneNumber = scanner.nextLine();
         }
+        this.phoneNumber = phoneNumber;
     }
 
     public String getAddress() {
@@ -88,11 +79,11 @@ public class Customer {
 
     public void toInfo() {
         System.out.println("Customer Infomation");
-        System.out.println("Name: ");
-        System.out.println("Id: ");
-        System.out.println("email: ");
-        System.out.println("Phone number: ");
-        System.out.println("Address: ");
+        System.out.println("Name: " + name);
+        System.out.println("Id: " + id);
+        System.out.println("email: " + email);
+        System.out.println("Phone number: " + phoneNumber) ;
+        System.out.println("Address: " + address);
     }
 
 }
