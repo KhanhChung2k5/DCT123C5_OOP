@@ -20,7 +20,9 @@ public abstract class Product {
     }
 
     // Phương thức trừu tượng
-    public abstract void toInfo();
+    public abstract void toInfo(); // hiên thị thong tin sản phẩm 
+    public abstract void displaySpecifications(); // hiển thị thông số kỹ thuật chi tiết của Laptop 
+    
 
     // Get và Set cho từng thuộc tính trong class
     public String getName(){
