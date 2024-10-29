@@ -3,6 +3,8 @@ package Project.Staff;
 import java.util.Scanner;
 
 public abstract class Employee {
+    private static int employeeCount = 0; // * */ Static variable to count employees
+
     private String id;
     private String name;
     private String email;
@@ -16,9 +18,14 @@ public abstract class Employee {
         this.id = id;
         this.name = name;
         this.email = email;
-        setPhoneNumber(phoneNumber); //* */ Use the setter to validate the phone number
+        setPhoneNumber(phoneNumber); // * */ Use the setter to validate the phone number
         this.position = position;
         this.salary = salary;
+        employeeCount++;
+    }
+
+    public static int getEmployeeCount() {
+        return employeeCount;
     }
 
     public String getId() {
@@ -51,10 +58,10 @@ public abstract class Employee {
 
     @SuppressWarnings("resource")
     public void setPhoneNumber(String phoneNumber) {
-        while (phoneNumber.length() == 10) { 
+        while (phoneNumber.length() == 10) {
             System.out.println("SDT phải có 10 số. Vui lòng nhập lại:");
-            Scanner scanner = new Scanner(System.in); 
-            phoneNumber = scanner.nextLine(); 
+            Scanner scanner = new Scanner(System.in);
+            phoneNumber = scanner.nextLine();
         }
         this.phoneNumber = phoneNumber;
     }
