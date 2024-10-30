@@ -1,12 +1,12 @@
 package Project.Staff;
 
 public class Saler extends Employee {
-    private double salesTarget;
+    private int salesTarget;
     private int productsSold;
 
     // * Constructor */
     public Saler(String id, String name, String email, String phoneNumber, String position, double salary,
-            double salesTarget) {
+            int salesTarget) {
         super(id, name, email, phoneNumber, position, salary);
         this.salesTarget = salesTarget;
     }
@@ -15,7 +15,7 @@ public class Saler extends Employee {
         return salesTarget;
     }
 
-    public void setSalesTarget(double salesTarget) {
+    public void setSalesTarget(int salesTarget) {
         this.salesTarget = salesTarget;
     }
 
