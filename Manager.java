@@ -6,9 +6,10 @@ public class Manager extends Employee {
 
     // * Constructor */
     public Manager(String id, String name, String email, String phoneNumber, String position, double salary,
-            String department) {
+            String department, double salaryCoefficient) {
         super(id, name, email, phoneNumber, position, salary);
         this.department = department;
+        this.salaryCoefficient = salaryCoefficient;
     }
 
     public String getDepartment() {
@@ -17,6 +18,14 @@ public class Manager extends Employee {
 
     public void setDepartment(String department) {
         this.department = department;
+    }
+
+    public void setSalaryCoefficient(double salaryCoefficient){
+        this.salaryCoefficient = salaryCoefficient;
+    }
+
+    public double getSalaryCoefficient(){
+        return salaryCoefficient;
     }
 
     @Override
