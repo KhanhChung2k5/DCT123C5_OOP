@@ -1,5 +1,3 @@
-package Project.Staff;
-
 public class Manager extends Employee {
     private String department;
     private double salaryCoefficient;
@@ -18,14 +16,6 @@ public class Manager extends Employee {
 
     public void setDepartment(String department) {
         this.department = department;
-    }
-
-    public void setSalaryCoefficient(double salaryCoefficient){
-        this.salaryCoefficient = salaryCoefficient;
-    }
-
-    public double getSalaryCoefficient(){
-        return salaryCoefficient;
     }
 
     @Override
@@ -57,6 +47,6 @@ public class Manager extends Employee {
         System.out.println("Position: " + getPosition());
         System.out.println("Salary: " + calculateSalary());
         System.out.println("Department: " + department);
-        System.out.println("Salary Cofficient: " + salaryCoefficient);
+        System.out.println("Salary Coefficient: " + salaryCoefficient);
     }
 }

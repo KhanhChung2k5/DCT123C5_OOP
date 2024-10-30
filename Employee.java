@@ -1,12 +1,10 @@
-package Project.Staff;
-
-//? import java.util.ArrayList;
-//? import java.util.List;
+// import java.util.ArrayList;
+// import java.util.List;
 import java.util.Scanner;
 
 public abstract class Employee {
-    // NOTE -
-    // private static List<Employee> employeeList = new ArrayList<>();
+    //NOTE - 
+    // private static List<Employee> employeeList = new ArrayList<>(); 
 
     private static int employeeCount = 0; // * */ Static variable to count employees
 
@@ -32,20 +30,20 @@ public abstract class Employee {
     public static int getEmployeeCount() {
         return employeeCount;
     }
-    
-    // NOTE -
+    //NOTE - 
     // public static void addEmployee(Employee employee) {
-    // employeeList.add(employee);
+    //     employeeList.add(employee);
     // }
 
     // public static void removeEmployee(Employee employee) {
-    // employeeList.remove(employee);
-    // employeeCount--; // Decrement employee count when an employee is removed
+    //     employeeList.remove(employee);
+    //     employeeCount--; // Decrement employee count when an employee is removed
     // }
 
     // public static List<Employee> getEmployees() {
-    // return new ArrayList<>(employeeList); // Return a copy of the employee list
+    //     return new ArrayList<>(employeeList); // Return a copy of the employee list
     // }
+
 
     public String getId() {
         return id;
@@ -78,7 +76,7 @@ public abstract class Employee {
     @SuppressWarnings("resource")
     public void setPhoneNumber(String phoneNumber) {
         while (phoneNumber.length() != 10) {
-            System.out.println("SDT phải có 10 số. Vui lòng nhập lại:");
+            System.out.println("SDT phai co 10 so. Vui long nhap lai:");
             Scanner scanner = new Scanner(System.in);
             phoneNumber = scanner.nextLine();
         }
