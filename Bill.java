@@ -2,7 +2,7 @@ package Project.Customer;
 
 import Project.Product.Laptop;
 import Project.Staff.Saler;
-//import Project.Customer.Customer;
+//? import Project.Customer.Customer;
 
 public class Bill {
 
@@ -17,6 +17,7 @@ public class Bill {
     // * Constructor */
     public Bill(Customer customer, Customer phoneNumber, Laptop laptop, Saler saler, String billId, String date,
             double totalAmount) {
+        super();
         this.customer = customer;
         this.phoneNumber = phoneNumber;
         this.laptop = laptop;
@@ -39,11 +40,7 @@ public class Bill {
     }
 
     public void setPhoneNumber(Customer phoneNumber) {
-        if(phoneNumber>=10){
-            this.phoneNumber=phoneNumber
-        }else{
-            // logic error
-        }
+        this.phoneNumber = phoneNumber;
     }
 
     public Laptop getLaptop() {
