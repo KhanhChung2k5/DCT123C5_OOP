@@ -4,7 +4,7 @@ public class Saler extends Employee {
 
     // * Constructor */
     public Saler(String id, String name, String email, String phoneNumber, String position, double salary,
-            int salesTarget,int productsSold) {
+                 int salesTarget,int productsSold) {
         super(id, name, email, phoneNumber, position, salary);
         this.salesTarget = salesTarget;
         this.productsSold = productsSold;
@@ -18,6 +18,12 @@ public class Saler extends Employee {
         this.salesTarget = salesTarget;
     }
 
+    public int getProductsSold() {
+        return productsSold;
+    }
+    public void setProductsSold(int productsSold) {
+        this.productsSold = productsSold;
+    }
     @Override
     public double calculateSalary() {
         return getSalary() + (productsSold * 1_000_000); // Calculate salary based on products sold
