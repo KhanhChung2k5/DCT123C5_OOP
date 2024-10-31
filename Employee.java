@@ -75,7 +75,7 @@ public abstract class Employee {
 
     @SuppressWarnings("resource")
     public void setPhoneNumber(String phoneNumber) {
-        while (phoneNumber.length() != 10) {
+        while (!phoneNumber.matches("\\d{10}")) {
             System.out.println("SDT phai co 10 so. Vui long nhap lai:");
             Scanner scanner = new Scanner(System.in);
             phoneNumber = scanner.nextLine();
