@@ -16,7 +16,7 @@ public class DataB {
     // Phương thức để nhập dữ liệu hóa đơn
     public void importBills() {
         try (BufferedReader br = new BufferedReader(
-                new FileReader("C:\\Users\\ADMIN\\OneDrive\\Desktop\\DO_AN_OOP_JAVA\\DOAN\\Project\\File\\bill.txt"))) {
+                new FileReader("bill.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
