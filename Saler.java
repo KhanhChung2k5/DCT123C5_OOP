@@ -1,7 +1,7 @@
 package Project.Staff;
 
 public class Saler extends Employee {
-    private double salesTarget;
+    private int salesTarget;
     private int productsSold;
 
     // * Constructor */
@@ -12,7 +12,7 @@ public class Saler extends Employee {
         this.productsSold = productsSold;
     }
 
-    public double getSalesTarget() {
+    public int getSalesTarget() {
         return salesTarget;
     }
 
@@ -28,13 +28,6 @@ public class Saler extends Employee {
         this.productsSold = productsSold;
     }
 
-    // public double getProducsSold() {
-    // return productsSold;
-    // }
-
-    // public void setSalesTarget(int productsSold) {
-    // this.productsSold = productsSold;
-    // }
 
     @Override
     public double calculateSalary() {
