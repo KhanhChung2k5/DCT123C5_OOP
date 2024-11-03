@@ -1,16 +1,18 @@
+package Project.Staff;
+
 public class Saler extends Employee {
-    private int salesTarget;
+    private double salesTarget;
     private int productsSold;
 
     // * Constructor */
     public Saler(String id, String name, String email, String phoneNumber, String position, double salary,
-                 int salesTarget,int productsSold) {
+            int salesTarget, int productsSold) {
         super(id, name, email, phoneNumber, position, salary);
         this.salesTarget = salesTarget;
         this.productsSold = productsSold;
     }
 
-    public int getSalesTarget() {
+    public double getSalesTarget() {
         return salesTarget;
     }
 
@@ -21,9 +23,19 @@ public class Saler extends Employee {
     public int getProductsSold() {
         return productsSold;
     }
+
     public void setProductsSold(int productsSold) {
         this.productsSold = productsSold;
     }
+
+    // public double getProducsSold() {
+    // return productsSold;
+    // }
+
+    // public void setSalesTarget(int productsSold) {
+    // this.productsSold = productsSold;
+    // }
+
     @Override
     public double calculateSalary() {
         return getSalary() + (productsSold * 1_000_000); // Calculate salary based on products sold
@@ -43,8 +55,8 @@ public class Saler extends Employee {
                 '}';
     }
 
-    public void toInfo(){
-        System.out.println("Saler information");
+    public void toInfo() {
+        System.out.println("Saler infomation");
         System.out.println("ID: " + getId());
         System.out.println("Name: " + getName());
         System.out.println("email: " + getEmail());
@@ -52,6 +64,6 @@ public class Saler extends Employee {
         System.out.println("Position: " + getPosition());
         System.out.println("Salary: " + calculateSalary());
         System.out.println("Sales target: " + salesTarget);
-        System.out.println("Products sold: " + productsSold);
+        System.out.println("Products sold:" + productsSold);
     }
 }
