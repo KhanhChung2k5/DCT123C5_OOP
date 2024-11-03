@@ -12,7 +12,7 @@ public class DataC {
 
     // Phương thức để nhập dữ liệu khách hàng
     public void importCustomers() {
-        try (BufferedReader br = new BufferedReader(new FileReader("customer.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\ADMIN\\OneDrive\\Desktop\\DO_AN_OOP_JAVA\\DOAN\\Project\\File\\customer.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");

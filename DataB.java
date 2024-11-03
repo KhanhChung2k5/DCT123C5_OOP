@@ -16,7 +16,7 @@ public class DataB {
     // Phương thức để nhập dữ liệu hóa đơn
     public void importBills() {
         try (BufferedReader br = new BufferedReader(
-                new FileReader("bill.txt"))) {
+                new FileReader("C:\\Users\\ADMIN\\OneDrive\\Desktop\\DO_AN_OOP_JAVA\\DOAN\\Project\\File\\bill.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
@@ -53,13 +53,14 @@ public class DataB {
 
                     // Tạo đối tượng Saler từ dữ liệu
                     Saler saler = new Saler(
-                            data[24], // id
-                            data[25], // name
-                            data[26], // email
-                            data[27], // phoneNumber
-                            data[28], // position
-                            Double.parseDouble(data[29]), // salary
-                            Double.parseDouble(data[30]) // commissionRate
+                        data[24], // id
+                        data[25], // name
+                        data[26], // email
+                        data[27], // phoneNumber
+                        data[28], // position
+                        Double.parseDouble(data[29]), // salary
+                        Integer.parseInt(data[30]), // salesTarget
+                        Integer.parseInt(data[31]) // productsSold
                     );
 
                     // Tạo đối tượng Bill từ dữ liệu
