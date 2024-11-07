@@ -7,6 +7,7 @@ public abstract class Employee {
     // private static List<Employee> employeeList = new ArrayList<>(); 
 
     private static int employeeCount = 0; // * */ Static variable to count employees
+    private static int rewardPerProduct = 1_000_000;
 
     private String id;
     private String name;
@@ -85,6 +86,14 @@ public abstract class Employee {
 
     public String getPosition() {
         return position;
+    }
+
+    public static double calculateSalaryByKPI(double basicSalary, int productSold) {
+        return basicSalary + (productSold * rewardPerProduct);
+    }
+
+    public static double calculateSalaryByCoefficient(double basicSalary, double coefficient) {
+        return basicSalary * coefficient;
     }
 
     public void setPosition(String position) {
