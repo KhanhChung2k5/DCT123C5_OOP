@@ -6,7 +6,7 @@ public abstract class Employee {
     //NOTE - 
     // private static List<Employee> employeeList = new ArrayList<>(); 
 
-    private static int employeeCount = 0; // * */ Static variable to count employees
+    //private static int employeeCount = 0; // * */ Static variable to count employees
     private static int rewardPerProduct = 1_000_000;
 
     private String id;
@@ -25,12 +25,12 @@ public abstract class Employee {
         setPhoneNumber(phoneNumber); // * */ Use the setter to validate the phone number
         this.position = position;
         this.salary = salary;
-        employeeCount++;
+        //employeeCount++;
     }
 
-    public static int getEmployeeCount() {
-        return employeeCount;
-    }
+    // public static int getEmployeeCount() {
+    //     return employeeCount;
+    // }
     //NOTE - 
     // public static void addEmployee(Employee employee) {
     //     employeeList.add(employee);
