@@ -10,7 +10,7 @@ public class EmployeeManage {
         }
         public void displayEmployee(){
             for (Employee employee : this.listEmployee){
-                employee.toInfo();
+                employee.toString(); // doi tu toInfo sang to String 
             }
         }//chắc không dùng tới..
         public  void  addEmployee(Employee newEmployee){
@@ -26,7 +26,7 @@ public class EmployeeManage {
                 System.out.println("Laptop with ID " + Id + " not found.");
             }
         }
-        public Employee SearchEmployee(String Id) {
+        public Employee SearchEmployee(String Id){
             for (Employee employee : this.listEmployee) {
                 if (employee.getId() == Id) {
                     return employee;
@@ -74,6 +74,9 @@ public class EmployeeManage {
                 System.out.println("0. Back");
                 choice = Integer.parseInt(scanner.nextLine());
                 switch (choice) {
+                    case 0: // ADD THEM CASE 0 de back
+                        System.out.println("Back");
+                        break;
                     case 1:
                         System.out.println("Change ID:");
                         String newId = scanner.nextLine();
@@ -127,8 +130,6 @@ public class EmployeeManage {
                         ((Saler)editSaler).setProductsSold(newProductsSold);
                         System.out.println("Products Sold updated successfully.");
                         break;
-
-
 
                     default:
                         System.out.println("Invalid choice. Please try again.");

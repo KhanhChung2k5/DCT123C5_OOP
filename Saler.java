@@ -1,12 +1,10 @@
-package Project.Staff;
-
 public class Saler extends Employee {
     private int salesTarget;
     private int productsSold;
 
     // * Constructor */
     public Saler(String id, String name, String email, String phoneNumber, String position, double salary,
-            int salesTarget, int productsSold) {
+                 int salesTarget,int productsSold) {
         super(id, name, email, phoneNumber, position, salary);
         this.salesTarget = salesTarget;
         this.productsSold = productsSold;
@@ -23,15 +21,12 @@ public class Saler extends Employee {
     public int getProductsSold() {
         return productsSold;
     }
-
     public void setProductsSold(int productsSold) {
         this.productsSold = productsSold;
     }
-
-
     @Override
     public double calculateSalary() {
-        return getSalary() + (productsSold * 1_000_000); // Calculate salary based on products sold
+        return Employee.calculateSalaryByKPI(getSalary(), productsSold); // Calculate salary based on products sold
     }
 
     @Override
@@ -48,15 +43,15 @@ public class Saler extends Employee {
                 '}';
     }
 
-    public void toInfo() {
-        System.out.println("Saler infomation");
+    public void toInfo(){
+        System.out.println("Saler information");
         System.out.println("ID: " + getId());
         System.out.println("Name: " + getName());
         System.out.println("email: " + getEmail());
         System.out.println("Phone number: " + getPhoneNumber());
         System.out.println("Position: " + getPosition());
         System.out.println("Salary: " + calculateSalary());
-        System.out.println("Sales target: " + salesTarget);
-        System.out.println("Products sold:" + productsSold);
+        System.out.println("Sales target: " + getSalesTarget()); // update getSalerTarget vs getProductSold 
+        System.out.println("Products sold: " + getProductsSold()); // ko co get ban dau 
     }
 }

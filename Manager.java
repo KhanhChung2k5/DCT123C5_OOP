@@ -26,7 +26,7 @@ public class Manager extends Employee {
 
     @Override
     public double calculateSalary() {
-        return getSalary() * salaryCoefficient; // Calculate salary based on the coefficient
+        return Employee.calculateSalaryByCoefficient(getSalary(), salaryCoefficient);
     }
 
 
