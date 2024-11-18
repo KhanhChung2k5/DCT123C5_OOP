@@ -1,3 +1,5 @@
+package Project.Product;
+
 public class Laptop extends Product {
     private int id;
     private String processor;

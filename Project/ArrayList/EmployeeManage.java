@@ -1,5 +1,10 @@
+package Project.ArrayList;
+
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import Project.Staff.Employee;
+import Project.Staff.Manager;
 
 public class EmployeeManage {
     Scanner scanner = new Scanner(System.in);
