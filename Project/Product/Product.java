@@ -1,3 +1,5 @@
+package Project.Product;
+
 public abstract class Product {
     private String name;
     private String maker;

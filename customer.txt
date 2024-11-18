@@ -1,3 +1,0 @@
-customerId1,Nguyen Van A,nguyenvana@example.com,0987654321,123 Street, District 1, Ho Chi Minh City
-customerId2,Le Thi B,lethib@example.com,0912345678,456 Avenue, District 2, Ho Chi Minh City
-customerId3,Tran Van C,tranvanc@example.com,0934567890,789 Boulevard, District 3, Ho Chi Minh City

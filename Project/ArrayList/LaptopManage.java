@@ -1,5 +1,9 @@
+package Project.ArrayList;
+
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import Project.Product.Laptop;
 
 public class LaptopManage {
     Scanner scanner = new Scanner(System.in);
