@@ -1,8 +1,14 @@
+package Project.Main;
+import java.util.List;
 import java.util.Scanner;
 
 import Project.ArrayList.LaptopManage;
+import Project.Customer.Bill;
+import Project.File.DataB;
 import Project.Product.Laptop;
 import Project.Staff.Manager;
+import Project.ArrayList.EmployeeManage;
+import Project.Staff.Saler;
 
 public class Main {
     public static void main(String[] args) {
@@ -28,6 +34,24 @@ public class Main {
 //                "Windows 10",      // Operating System
 //                4                  // Adapter
 //        );//test case
+        //todo: goi ham xu ly doc file hoa don vao bill va xuat ra cac bill 
+         DataB dataB = new DataB();
+
+        // Gọi phương thức importBills để đọc dữ liệu từ file
+        dataB.importBills();
+
+        // Lấy danh sách hóa đơn từ DataB
+        List<Bill> bills = dataB.getBills();
+
+        // Hiển thị thông tin các hóa đơn (nếu cần)
+        if (bills.isEmpty()) {
+            System.out.println("Khong co hoa don nao doc tu file.");
+        } else {
+            for (Bill bill : bills) {
+                System.out.println(bill);
+            }
+        }
+
         Saler newSaler = null;//khoi tao
         Manager newManager = null;//khoi tao
         LaptopManage listLaptop = new LaptopManage();
@@ -122,10 +146,15 @@ public class Main {
                                 System.out.println("Enter Laptop Operating System: ");
                                 String laptopOperatingSystem = scanner.nextLine();
 
+                                System.out.println("Enter Laptop Graphics Memory");
+                                int laptopGraphicsMemory = scanner.nextInt();
+
                                 // Tạo đối tượng Laptop
-                                Laptop laptop = new Laptop(laptopName, laptopId, laptopMaker, laptopPrice, laptopType, laptopWeight, laptopModel,
-                                        laptopWarrantyPeriod, laptopReleaseDate, laptopProcessor, laptopRAM, laptopStorage,
-                                        laptopGraphicsCard, laptopColor, laptopBatteryLife, laptopScreenSize, laptopOperatingSystem, laptopAdapter);
+                                Laptop laptop = new Laptop(laptopName, laptopId, laptopMaker, laptopPrice,
+                                        laptopType, laptopWeight, laptopModel,
+                                        laptopWarrantyPeriod, laptopReleaseDate, laptopProcessor, laptopRAM,
+                                         laptopStorage,
+                                        laptopGraphicsCard, laptopColor, laptopBatteryLife, laptopScreenSize, laptopOperatingSystem,laptopGraphicsMemory, laptopAdapter);
                                 listLaptop.addLaptop(laptop);
                                 break;
                             case 2:

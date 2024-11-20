@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import Project.Staff.Employee;
 import Project.Staff.Manager;
+import Project.Staff.Saler;
 
 public class EmployeeManage {
     Scanner scanner = new Scanner(System.in);

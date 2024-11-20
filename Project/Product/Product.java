@@ -23,7 +23,7 @@ public abstract class Product {
 
     // Phương thức trừu tượng
     public abstract void toInfo(); // hiên thị thong tin sản phẩm 
-    public abstract void displaySpecifications(); // hiển thị thông số kỹ thuật chi tiết của Laptop 
+    // public abstract String displaySpecifications(); // hiển thị thông số kỹ thuật chi tiết của Laptop //todo: debug
     
 
     // Get và Set cho từng thuộc tính trong class
@@ -88,5 +88,18 @@ public abstract class Product {
 
     public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
+    }
+    @Override
+    public String toString() {
+        return "Laptop {" +
+                "name laptop" + name + '\'' +
+                "maker" + maker  + '\'' +
+                "price" + price + '\'' +
+                "type" + type + '\'' +
+                "weight" + weight + '\'' +
+                "model" + model + '\'' +
+                "warranty period" + warrantyPeriod + '\'' +
+                "release date" + releaseDate + '\'' +
+                " }";
     }
 }

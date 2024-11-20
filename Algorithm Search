@@ -1,8 +1,0 @@
-function searchSuggestions(query, database):
-    results = []  # danh sách lưu kết quả
-    
-    for each variable in database:
-        if query is substring of variable:
-            results.append(variable)
-    
-    return results

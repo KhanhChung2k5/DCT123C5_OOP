@@ -16,13 +16,16 @@ public class DataB {
     // Phương thức để nhập dữ liệu hóa đơn
     public void importBills() {
         try (BufferedReader br = new BufferedReader(
-                new FileReader("C:\\Users\\ADMIN\\OneDrive\\Desktop\\DO_AN_OOP_JAVA\\DOAN\\Project\\File\\bill.txt"))) {
+                new FileReader("Project/File/bill.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
-                String[] data = line.split(",");
-                if (data.length < 35) { // Điều chỉnh số lượng dữ liệu cần thiết
-                    System.out.println("Dữ liệu không đầy đủ: " + line);
-                    continue; // Bỏ qua dòng này nếu không đủ dữ liệu
+                String[] data = line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
+
+                // System.out.println("Số trường trong dòng: " + data.length); // fix bug
+
+                if (data.length < 35) { // todo fix bug tu 35 sang 40
+                    System.out.println("Du lieu khong day du: " + line);
+                    continue;
                 }
                 try {
                     // Tạo đối tượng Customer từ dữ liệu
@@ -31,7 +34,7 @@ public class DataB {
                     // Tạo đối tượng Laptop từ dữ liệu
                     Laptop laptop = new Laptop(
                             data[5], // name
-                            data[6], // id
+                            Integer.parseInt(data[6]), // id TODO: update type id
                             data[7], // maker
                             Double.parseDouble(data[8]), // price
                             data[9], // type
@@ -53,20 +56,20 @@ public class DataB {
 
                     // Tạo đối tượng Saler từ dữ liệu
                     Saler saler = new Saler(
-                        data[24], // id
-                        data[25], // name
-                        data[26], // email
-                        data[27], // phoneNumber
-                        data[28], // position
-                        Double.parseDouble(data[29]), // salary
-                        Integer.parseInt(data[30]), // salesTarget
-                        Integer.parseInt(data[31]) // productsSold
+                            data[24], // id
+                            data[25], // name
+                            data[26], // email
+                            data[27], // phoneNumber
+                            data[28], // position
+                            Double.parseDouble(data[29]), // salary
+                            Integer.parseInt(data[30]), // salesTarget
+                            Integer.parseInt(data[31]) // productsSold
                     );
 
                     // Tạo đối tượng Bill từ dữ liệu
                     Bill bill = new Bill(
                             customer,
-                            Customer.data[31], // Lấy số điện thoại từ đối tượng Customer
+                            customer.getPhoneNumber(), // Lấy số điện thoại từ đối tượng Customer
                             laptop,
                             saler,
                             data[32], // billId

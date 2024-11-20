@@ -7,7 +7,7 @@ import Project.Staff.Saler;
 public class Bill {
 
     private Customer customer;
-    private Customer phoneNumber;
+    private String phoneNumber; // update tu Customer sang String
     private Laptop laptop;
     private Saler saler;
     private String billId;
@@ -15,7 +15,7 @@ public class Bill {
     private double totalAmount;
 
     // * Constructor */
-    public Bill(Customer customer, Customer phoneNumber, Laptop laptop, Saler saler, String billId, String date,
+    public Bill(Customer customer, String phoneNumber, Laptop laptop, Saler saler, String billId, String date,
             double totalAmount) {
         super();
         this.customer = customer;
@@ -35,11 +35,13 @@ public class Bill {
         this.customer = customer;
     }
 
-    public Customer getPhoneNCustomer() {
+    //todo: update Customer phoneNumber sang String phoneNumber 
+
+    public String getPhoneNumber() {
         return phoneNumber;
     }
-
-    public void setPhoneNumber(Customer phoneNumber) {
+    
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -85,9 +87,9 @@ public class Bill {
 
     @Override
     public String toString() {
-        return "Bill{" +
+        return "Bill: " +
                 "Customer=" + customer +
-                ", Customer Phonenumber" + phoneNumber +
+                ", Customer Phonenumber" + phoneNumber + //todo: fix bug
                 ", Laptop=" + laptop +
                 ", Saler=" + saler +
                 ", Bill ID='" + billId + '\'' +
