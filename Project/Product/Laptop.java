@@ -11,13 +11,17 @@ public class Laptop extends Product {
     private double screenSize;
     private double adapter;
     private String operatingSystem;
+    private int graphicsMemory;
 
-    public Laptop(String name,int id, String maker, double price, String type, double weight, String model, int warrantyPeriod,
-                    String releaseDate, String processor, int ram, int storage, String graphicsCard, String color, 
-                    int batteryLife, double screenSize, String operatingSystem, int graphicsMemory, double adapter) {
-        super(name,maker, price, type, weight, model, warrantyPeriod, releaseDate);
+    public Laptop(String name, int id, String maker,
+            double price, String type, double weight,
+            String model, int warrantyPeriod, String releaseDate,
+            String processor, int ram, int storage,
+            String graphicsCard, String color, int batteryLife, double screenSize,
+            String operatingSystem,  int graphicsMemory, double adapter) {
+        super(name, maker, price, type, weight, model, warrantyPeriod, releaseDate);
         this.id = id;
-        this.processor = processor; 
+        this.processor = processor;
         this.ram = ram;
         this.storage = storage;
         this.graphicsCard = graphicsCard;
@@ -25,40 +29,58 @@ public class Laptop extends Product {
         this.batteryLife = batteryLife;
         this.screenSize = screenSize;
         this.operatingSystem = operatingSystem;
+        this.graphicsMemory = graphicsMemory;
         this.adapter = adapter;
     }
-    
-    @Override
-    public void displaySpecifications() {
-        //Hiển thị thông số kỹ thuật chi tiết của laptop
 
-        System.out.println("Laptop Specifications:");
-        System.out.println("Processor: " + processor);
-        System.out.println("RAM: " + ram + "GB");
-        System.out.println("Storage: " + storage + "GB");
-        System.out.println("Graphics Card: " + graphicsCard);
-        System.out.println("Color: " + color);
-        System.out.println("Battery Life: " + batteryLife + " hours");
-        System.out.println("Screen Size: " + screenSize + " inches");
-        System.out.println("Operating System: " + operatingSystem);
-        System.out.println("Adapter: " + adapter + "W");
+    @Override
+    public String toString() {
+        // Hiển thị thông số kỹ thuật chi tiết của laptop
+        return "Laptop {" +
+                "name = '" + getName() + '\'' +
+                "id = '" + getId()  + '\'' +
+                "maker = '" + getMaker()  + '\'' +
+                "price = '" + getPrice() + '\'' +
+                "type = '" + getType() + '\'' +
+                "weight = '" + getWeight() + '\'' +
+                "model = '" + getModel() + '\'' +
+                "warranty period = '" + getWarrantyPeriod() + '\'' +
+                "release date = '" + getReleaseDate() + '\'' +
+                "processor = '" + processor + '\'' +
+                "ram = '" + ram + '\'' +
+                "storage = '" + storage + '\'' +
+                "graphic card = '" + graphicsCard + '\'' +
+                "color = '" + color + '\'' +
+                "battery life = '" + batteryLife + '\'' +
+                "screen size = '" + screenSize + '\'' +
+                "operating system = '" + operatingSystem + '\'' +
+                "graphic memory = '" + graphicsMemory + '\'' +
+                "adapter = '" + adapter + '\'' +
+                '}';
     }
 
-    @Override
     public void toInfo() {
-        System.out.println("Computer ID: " + id);
-        System.out.println("Maker: " + getMaker());
-        System.out.println("Price: " + getPrice());
-        System.out.println("Type: " + getType());
-        System.out.println("Weight: " + getWeight());
-        System.out.println("Model: " + getModel());
-        System.out.println("Warranty Period: " + getWarrantyPeriod() + " months");
-        System.out.println("Release Date: " + getReleaseDate());
-        System.out.println("Name Laptop: " + getName());
-        displaySpecifications();
-        
+        System.out.println("Laptop Information: ");
+        System.out.println("ID" + getId());
+        System.out.println("Name" + getName());
+        System.out.println("Maker" + getMaker());
+        System.out.println("Price" + getPrice());
+        System.out.println("Type" + getType());
+        System.out.println("Weight" + getWeight());
+        System.out.println("Model" + getModel());
+        System.out.println("Warranty Period" + getWarrantyPeriod());
+        System.out.println("Release Date" + getReleaseDate());
+        System.out.println("Processor" + getProcessor());
+        System.out.println("Ram" + getRam());
+        System.out.println("Storage" + getStorage());
+        System.out.println("Graphics Card" + getGraphicsCard());
+        System.out.println("Color" + getColor());
+        System.out.println("Battery life" + getBatteryLife());
+        System.out.println("Screen Size" + getScreenSize());
+        System.out.println("Operating System" + getOperatingSystem());
+        System.out.println("Graphics Memory" + getGraphicsMemory());
+        System.out.println("Adapter" + getAdapter());
     }
-
 
     // Get và set cho tung thuoc tinh
     public int getId() {
@@ -140,5 +162,13 @@ public class Laptop extends Product {
     public void setOperatingSystem(String operatingSystem) {
         this.operatingSystem = operatingSystem;
     }
-    
+
+    public void setGraphicsMemory(int graphicsMemory) {
+        this.graphicsMemory = graphicsMemory;
+    }
+
+    public int getGraphicsMemory() {
+        return graphicsMemory;
+    }
+
 }

@@ -10,6 +10,7 @@ import Project.Product.Laptop;
 import Project.Product.Product;
 import Project.Staff.Employee;
 import Project.Staff.Manager;
+import Project.Staff.Saler;
 
 public class DataImport {
     private List<Product> products = new ArrayList<>(); // Danh sách sản phẩm
@@ -23,7 +24,7 @@ public class DataImport {
                 String[] data = line.split(",");
                 if (data.length < 9) {
                     System.out.println("Du lieu khong day du: " + line);
-                    continue; // Bỏ qua dòng này nếu không đủ dữ liệu
+                    continue; 
                 }
                 Product product = new Laptop(
                         data[0], // name
@@ -95,6 +96,6 @@ public class DataImport {
 
     // Phương thức để lấy danh sách nhân viên
     public List<Employee> getEmployees() {
-        return employees; // Trả về danh sách nhân viên
+        return employees;
     }
 }
