@@ -47,13 +47,13 @@ public class Customer {
         return phoneNumber;
     }
 
+    @SuppressWarnings("resource")
     public void setPhoneNumber(String phoneNumber) {
-        while (phoneNumber.length() == 10) {
-            System.out.println("SDT phải có 10 số.");
-            @SuppressWarnings("resource")
-            Scanner scanner = new Scanner(System.in);
-            System.out.print("Nhập lại sdt: ");
-            phoneNumber = scanner.nextLine();
+        Scanner scanner = new Scanner(System.in);
+
+        while (phoneNumber == null || phoneNumber.length() != 10 || !phoneNumber.matches("\\d+")) {
+            System.out.println("Sai dinh dang vui long nhap lai:");
+            phoneNumber = scanner.nextLine().trim();
         }
         this.phoneNumber = phoneNumber;
     }

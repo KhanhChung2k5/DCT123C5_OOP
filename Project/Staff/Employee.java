@@ -11,6 +11,7 @@ public abstract class Employee {
 
     // private static int employeeCount = 0; // * */ Static variable to count
     // employees
+    private static int employeeCount = 0;
     private static int rewardPerProduct = 1_000_000;
 
     private String id;
@@ -21,7 +22,6 @@ public abstract class Employee {
     private double salary;
 
     // * Constructor */
-    @SuppressWarnings("resource")
     public Employee(String id, String name, String email, String phoneNumber, String position, double salary) {
         this.id = id;
         this.name = name;
@@ -79,10 +79,11 @@ public abstract class Employee {
 
     @SuppressWarnings("resource")
     public void setPhoneNumber(String phoneNumber) {
-        while (!phoneNumber.matches("\\d{10}")) {
-            System.out.println("SDT phai co 10 so. Vui long nhap lai:");
-            Scanner scanner = new Scanner(System.in);
-            phoneNumber = scanner.nextLine();
+        Scanner scanner = new Scanner(System.in);
+
+        while (phoneNumber == null || phoneNumber.length() != 10 || !phoneNumber.matches("\\d+")) {
+            System.out.println("Sai dinh dang vui long nhap lai:");
+            phoneNumber = scanner.nextLine().trim();
         }
         this.phoneNumber = phoneNumber;
     }
@@ -111,6 +112,15 @@ public abstract class Employee {
         this.salary = salary;
     }
 
+    public static int getEmployeeCount() {
+        return employeeCount;
+    }
+
+    // Nếu cần reset số lượng nhân viên
+    public static void resetEmployeeCount() {
+        employeeCount = 0;
+    }
+
     // *DA HINH */
     public abstract double calculateSalary();
 
@@ -126,6 +136,13 @@ public abstract class Employee {
                 ", position='" + position + '\'' +
                 ", salary=" + salary +
                 '}';
+    }
+
+    @SuppressWarnings("deprecation")
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        employeeCount--; // Giảm số lượng khi đối tượng bị thu hồi bởi Garbage Collector
     }
 
 }

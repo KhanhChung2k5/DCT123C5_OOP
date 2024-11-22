@@ -88,13 +88,13 @@ public class Bill {
     @Override
     public String toString() {
         return "Bill: " +
-                "Customer=" + customer +
-                ", Customer Phonenumber" + phoneNumber + //todo: fix bug
-                ", Laptop=" + laptop +
-                ", Saler=" + saler +
-                ", Bill ID='" + billId + '\'' +
-                ", Date='" + date + '\'' +
-                ", Total amount=" + totalAmount +
+                "Customer = " + customer +
+                ", Customer Phonenumber = " + phoneNumber + //todo: fix bug
+                ", Laptop = " + laptop +
+                ", Saler = " + saler +
+                ", Bill ID = '" + billId + '\'' +
+                ", Date = '" + date + '\'' +
+                ", Total amount = " + totalAmount +
                 '}';
     }
 

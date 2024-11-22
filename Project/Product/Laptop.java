@@ -1,6 +1,8 @@
 package Project.Product;
 
 public class Laptop extends Product {
+    private static int laptopCount = 0; //todo: thuoc tinh static dung de dem so luong laptop
+
     private int id;
     private String processor;
     private int ram;
@@ -31,7 +33,22 @@ public class Laptop extends Product {
         this.operatingSystem = operatingSystem;
         this.graphicsMemory = graphicsMemory;
         this.adapter = adapter;
+        laptopCount++; //todo tang so luong laptop 
     }
+
+    //todo: dem so luong laptop 
+    
+
+    public static int getLaptopCount(){
+        return laptopCount;
+    }
+
+    //todo: reset so luong laptop 
+    
+    public static void setLaptopCount(int laptopCount){
+        laptopCount = 0;
+    }
+
 
     @Override
     public String toString() {
