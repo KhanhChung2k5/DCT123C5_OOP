@@ -6,7 +6,9 @@ import java.util.Scanner;
 import Project.Staff.Employee;
 import Project.Staff.Manager;
 import Project.Staff.Saler;
+import Project.File.DataImport;
 
+@SuppressWarnings("unused") //todo: debug fix add employee vao mang ko luu tru 
 public class EmployeeManage {
     Scanner scanner = new Scanner(System.in);
     public ArrayList<Employee> listEmployee;
@@ -16,7 +18,7 @@ public class EmployeeManage {
         }
         public void displayEmployee(){
             for (Employee employee : this.listEmployee){
-                employee.toString(); // doi tu toInfo sang to String 
+                employee.toString(); // doi tu toInfo sang to String //todo doi sang toInfo
             }
         }//chắc không dùng tới..
         public  void  addEmployee(Employee newEmployee){
@@ -55,6 +57,7 @@ public class EmployeeManage {
         }
     }
 
+    @SuppressWarnings("null")
     public void editEmployee(Employee employee){
 
         if (employee instanceof Saler){

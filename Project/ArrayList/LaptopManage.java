@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import Project.Product.Laptop;
+import Project.File.DataImport;
 
+@SuppressWarnings("unused") // todo: fix add laptop vao product 
 public class LaptopManage {
     Scanner scanner = new Scanner(System.in);
     ArrayList<Laptop> laptops;
