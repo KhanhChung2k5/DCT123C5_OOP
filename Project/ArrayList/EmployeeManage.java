@@ -1,7 +1,10 @@
 package Project.ArrayList;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
+import javax.swing.text.Position;
 
 import Project.Staff.Employee;
 import Project.Staff.Manager;
@@ -11,50 +14,61 @@ import Project.File.DataImport;
 @SuppressWarnings("unused") //todo: debug fix add employee vao mang ko luu tru 
 public class EmployeeManage {
     Scanner scanner = new Scanner(System.in);
-    public ArrayList<Employee> listEmployee;
+    private List<Employee> employees = new ArrayList<>();
 
         public EmployeeManage(){
-            this.listEmployee = new ArrayList<>();
+            this.employees = new ArrayList<>();
         }
-        public void displayEmployee(){
-            for (Employee employee : this.listEmployee){
-                employee.toString(); // doi tu toInfo sang to String //todo doi sang toInfo
-            }
+        
+        public List<Employee> displayEmployee(){
+            return employees;
         }//chắc không dùng tới..
+        
         public  void  addEmployee(Employee newEmployee){
-            listEmployee.add(newEmployee);
+            employees.add(newEmployee);
         }
 
-        public void DeleteEmployee(String Id){
-            Employee findEmployee= SearchEmployee(Id);
-            if (findEmployee != null) {
-                listEmployee.remove(findEmployee);
-                System.out.println("Laptop with ID " + Id + " has been deleted.");
-            } else {
-                System.out.println("Laptop with ID " + Id + " not found.");
-            }
-        }
-        public Employee SearchEmployee(String Id){
-            for (Employee employee : this.listEmployee) {
-                if (employee.getId() == Id) {
+        public Employee searchEmployee(String id){
+            for (Employee employee : employees) {
+                if (employee.getId() != null && employee.getId().equals(id)) {
                     return employee;
                 }
             }
             return null;
         }
+
+        public boolean DeleteEmployee(String id){
+            Employee findEmployee = searchEmployee(id);
+            if (findEmployee != null) {
+                employees.remove(findEmployee);
+                return true;
+            }
+            return false;
+        }
+
     public void deleteAllSaler() {
-        for (int i = listEmployee.size() - 1; i >= 0; i--) {
-            if (listEmployee.get(i) instanceof Saler) {
-                listEmployee.remove(i);
+        for (int i = employees.size() - 1; i >= 0; i--) {
+            if (employees.get(i) instanceof Saler) {
+                employees.remove(i);
             }
         }
     }
     public void deleteAllManage() {
-        for (int i = listEmployee.size() - 1; i >= 0; i--) {
-            if (listEmployee.get(i) instanceof Manager) {
-                listEmployee.remove(i);
+        for (int i = employees.size() - 1; i >= 0; i--) {
+            if (employees.get(i) instanceof Manager) {
+                employees.remove(i);
             }
         }
+    }
+
+    public List<Employee> getEmployeesByPosition(String position) {
+        List<Employee> filteredEmployees = new ArrayList<>();
+        for (Employee employee : employees) {
+            if (employee.getPosition() != null && employee.getPosition().equalsIgnoreCase(position)) {
+                filteredEmployees.add(employee);
+            }
+        }
+        return filteredEmployees;
     }
 
     @SuppressWarnings("null")
@@ -66,7 +80,7 @@ public class EmployeeManage {
                 System.out.println("Please enter the ID of the Saler you would like to edit:");
                 String searchIdToEdit = scanner.nextLine();
                 scanner.nextLine();
-                Employee editSaler  = SearchEmployee(searchIdToEdit);
+                Employee editSaler  = searchEmployee(searchIdToEdit);
                 if (editSaler != null){
                     System.out.println("Not Found");
                     return;
@@ -152,7 +166,7 @@ public class EmployeeManage {
             do {
                 System.out.println("Please enter the ID of the Manager you would like to edit:");
                 String searchIdToEdit = scanner.nextLine();
-                Employee editManager = SearchEmployee(searchIdToEdit);
+                Employee editManager = searchEmployee(searchIdToEdit);
                 if (editManager == null) {
                     System.out.println("Not Found");
                     return;
@@ -223,6 +237,6 @@ public class EmployeeManage {
                 }
             } while (choice != 0);
         }
-    }
+    }        
 
 }

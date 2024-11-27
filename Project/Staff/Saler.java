@@ -33,16 +33,20 @@ public class Saler extends Employee {
 
     @Override
     public String toString() {
-        return "Saler{" +
-                "id='" + getId() + '\'' +
-                ", name='" + getName() + '\'' +
-                ", email='" + getEmail() + '\'' +
-                ", phoneNumber='" + getPhoneNumber() + '\'' +
-                ", position='" + getPosition() + '\'' +
-                ", salary=" + getSalary() +
-                ", salesTarget=" + salesTarget +
-                ", productsSold=" + productsSold +
-                '}';
+        StringBuilder sb = new StringBuilder();
+    sb.append("+------------------------+------------------------------+\n");
+    sb.append("|         Field          |            Value            |\n");
+    sb.append("+------------------------+------------------------------+\n");
+    sb.append(String.format("| %-22s | %-28s |\n", "ID", getId()));
+    sb.append(String.format("| %-22s | %-28s |\n", "Name", getName()));
+    sb.append(String.format("| %-22s | %-28s |\n", "Email", getEmail()));
+    sb.append(String.format("| %-22s | %-28s |\n", "Phone Number", getPhoneNumber()));
+    sb.append(String.format("| %-22s | %-28s |\n", "Position", getPosition()));
+    sb.append(String.format("| %-22s | %-28.2f |\n", "Salary", getSalary()));
+    sb.append(String.format("| %-22s | %-28d |\n", "Sales Target", salesTarget));
+    sb.append(String.format("| %-22s | %-28d |\n", "Products Sold", productsSold));
+    sb.append("+------------------------+------------------------------+");
+    return sb.toString();
     }
 
     public void toInfo(){
@@ -53,7 +57,7 @@ public class Saler extends Employee {
         System.out.println("Phone number: " + getPhoneNumber());
         System.out.println("Position: " + getPosition());
         System.out.println("Salary: " + calculateSalary());
-        System.out.println("Sales target: " + getSalesTarget()); // update getSalerTarget vs getProductSold 
-        System.out.println("Products sold: " + getProductsSold()); // ko co get ban dau 
+        System.out.println("Sales target: " + salesTarget); // update getSalerTarget vs getProductSold 
+        System.out.println("Products sold: " + productsSold); // ko co get ban dau 
     }
 }

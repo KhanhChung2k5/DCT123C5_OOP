@@ -1,15 +1,18 @@
 package Project.ArrayList;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import Project.Product.Laptop;
+import Project.Product.Product;
 import Project.File.DataImport;
 
 @SuppressWarnings("unused") // todo: fix add laptop vao product 
 public class LaptopManage {
     Scanner scanner = new Scanner(System.in);
-    ArrayList<Laptop> laptops;
+    private List<Laptop> laptops = new ArrayList<>();
+
 
     public LaptopManage() {
         laptops = new ArrayList<>();
@@ -19,16 +22,14 @@ public class LaptopManage {
         laptops.add(laptop);
     }
 
-    public void displayLaptops() {
-        for (Laptop laptop : laptops) {
-            laptop.toInfo();
-        }
+    public List<Laptop> displayLaptops() {
+        return laptops;
     }
 
 
 
     public ArrayList<Laptop> getLaptops() {
-        return laptops;
+        return (ArrayList<Laptop>) laptops;
     }
 
     public Laptop searchLaptop(int idLaptop) {
@@ -178,13 +179,12 @@ public class LaptopManage {
             }
         } while (yourChoice != 0);
     }
-    public void deleteLaptop(int id) {
+    public boolean deleteLaptop(int id) {
         Laptop laptopToRemove = searchLaptop(id);
         if (laptopToRemove != null) {
             laptops.remove(laptopToRemove);
-            System.out.println("Laptop with ID " + id + " has been deleted.");
-        } else {
-            System.out.println("Laptop with ID " + id + " not found.");
+            return true;
         }
+        return false;
     }
 }
