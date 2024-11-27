@@ -45,35 +45,40 @@ public class Laptop extends Product {
 
     //todo: reset so luong laptop 
     
-    public static void setLaptopCount(int laptopCount){
-        laptopCount = 0;
+    public static void setLaptopCount(int count){
+        laptopCount = count;
     }
 
 
     @Override
     public String toString() {
         // Hiển thị thông số kỹ thuật chi tiết của laptop
-        return "Laptop {" +
-                "name = '" + getName() + '\'' +
-                "id = '" + getId()  + '\'' +
-                "maker = '" + getMaker()  + '\'' +
-                "price = '" + getPrice() + '\'' +
-                "type = '" + getType() + '\'' +
-                "weight = '" + getWeight() + '\'' +
-                "model = '" + getModel() + '\'' +
-                "warranty period = '" + getWarrantyPeriod() + '\'' +
-                "release date = '" + getReleaseDate() + '\'' +
-                "processor = '" + processor + '\'' +
-                "ram = '" + ram + '\'' +
-                "storage = '" + storage + '\'' +
-                "graphic card = '" + graphicsCard + '\'' +
-                "color = '" + color + '\'' +
-                "battery life = '" + batteryLife + '\'' +
-                "screen size = '" + screenSize + '\'' +
-                "operating system = '" + operatingSystem + '\'' +
-                "graphic memory = '" + graphicsMemory + '\'' +
-                "adapter = '" + adapter + '\'' +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("+------------------------+------------------------------+\n");
+        sb.append("|         Field          |            Value            |\n");
+        sb.append("+------------------------+------------------------------+\n");
+        sb.append(String.format("| %-22s | %-28s |\n", "ID", getId()));
+        sb.append(String.format("| %-22s | %-28s |\n", "Name", getName()));
+        sb.append(String.format("| %-22s | %-28s |\n", "Maker", getMaker()));
+        sb.append(String.format("| %-22s | %-28.2f |\n", "Price", getPrice())); // Giá là double
+        sb.append(String.format("| %-22s | %-28s |\n", "Type", getType()));
+        sb.append(String.format("| %-22s | %-28.2f |\n", "Weight", getWeight())); // Cân nặng là double
+        sb.append(String.format("| %-22s | %-28s |\n", "Model", getModel()));
+        sb.append(String.format("| %-22s | %-28d |\n", "Warranty Period", getWarrantyPeriod())); // Bảo hành là int
+        sb.append(String.format("| %-22s | %-28s |\n", "Release Date", getReleaseDate()));
+        sb.append(String.format("| %-22s | %-28s |\n", "Processor", processor));
+        sb.append(String.format("| %-22s | %-28d |\n", "RAM", ram)); // RAM là int
+        sb.append(String.format("| %-22s | %-28d |\n", "Storage", storage)); // Storage là int
+        sb.append(String.format("| %-22s | %-28s |\n", "Graphics Card", graphicsCard));
+        sb.append(String.format("| %-22s | %-28s |\n", "Color", color));
+        sb.append(String.format("| %-22s | %-28d |\n", "Battery Life (hours)", batteryLife));
+
+        sb.append(String.format("| %-22s | %-28.1f |\n", "Screen Size", screenSize)); // Kích thước màn hình là float/double
+        sb.append(String.format("| %-22s | %-28s |\n", "Operating System", operatingSystem));
+        sb.append(String.format("| %-22s | %-28d |\n", "Graphics Memory", graphicsMemory)); // Graphics Memory là int
+        sb.append(String.format("| %-22s | %-28.2f |\n", "Adapter", adapter)); // Adapter là double
+        sb.append("+------------------------+------------------------------+");
+        return sb.toString();
     }
 
     public void toInfo() {

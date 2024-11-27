@@ -88,8 +88,13 @@ public abstract class Employee {
         this.phoneNumber = phoneNumber;
     }
 
+
     public String getPosition() {
         return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
     }
 
     public static double calculateSalaryByKPI(double basicSalary, int productSold) {
@@ -98,10 +103,6 @@ public abstract class Employee {
 
     public static double calculateSalaryByCoefficient(double basicSalary, double coefficient) {
         return basicSalary * coefficient;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
     }
 
     public double getSalary() {

@@ -11,14 +11,23 @@ import Project.Product.Product;
 import Project.Staff.Employee;
 import Project.Staff.Manager;
 import Project.Staff.Saler;
+import Project.ArrayList.LaptopManage;
+import Project.ArrayList.EmployeeManage;
 
+@SuppressWarnings("unused")
 public class DataImport {
-    private List<Product> products = new ArrayList<>(); // Danh sách sản phẩm
-    private List<Employee> employees = new ArrayList<>(); // Danh sách nhân viên
+    private EmployeeManage employeeManager;
+    private LaptopManage laptopManager;
+
+    public DataImport(EmployeeManage employeeManager, LaptopManage laptopManager) {
+        this.employeeManager = employeeManager;
+        this.laptopManager = laptopManager;
+    }
+
 
     // edit_1: Thêm phương thức để nhập dữ liệu sản phẩm
     public void importProducts() {
-        try (BufferedReader br = new BufferedReader(new FileReader("product.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("Project/File/product.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
@@ -26,7 +35,7 @@ public class DataImport {
                     System.out.println("Du lieu khong day du: " + line);
                     continue; 
                 }
-                Product product = new Laptop(
+                Laptop laptop = new Laptop(
                         data[0], // name
                         Integer.parseInt(data[1]), // id
                         data[2], // maker
@@ -47,7 +56,7 @@ public class DataImport {
                         Integer.parseInt(data[17]), // graphicsMemory
                         Double.parseDouble(data[18]) // adapter
                 );
-                products.add(product);
+                laptopManager.addLaptop(laptop);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -56,7 +65,7 @@ public class DataImport {
 
     // edit_2: Thêm phương thức để nhập dữ liệu nhân viên
     public void importStaff() {
-        try (BufferedReader br = new BufferedReader(new FileReader("staff.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("Project/File/staff.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
@@ -70,7 +79,7 @@ public class DataImport {
                             Double.parseDouble(data[5]), // salary
                             Integer.parseInt(data[6]), // salesTarget (cần thêm tham số này)
                             Integer.parseInt(data[7]));
-                    employees.add(saler); // Thêm nhân viên vào danh sách
+                    employeeManager.addEmployee(saler); // Thêm nhân viên vào danh sách
                 } else {
                     Employee manager = new Manager(
                             data[0], // id
@@ -82,7 +91,7 @@ public class DataImport {
                             data[6], // department
                             Double.parseDouble(data[7]) // salary Coefficient
                     );
-                    employees.add(manager); // Thêm nhân viên vào danh sách
+                    employeeManager.addEmployee(manager); // Thêm nhân viên vào danh sách
                 }
             }
         } catch (IOException e) {
@@ -90,12 +99,12 @@ public class DataImport {
         }
     }
 
-    public List<Product> getProducts() { // Phương thức để lấy danh sách sản phẩm
-        return products;
+    public List<Laptop> getProducts() { // Phương thức để lấy danh sách sản phẩm
+        return laptopManager.displayLaptops();
     }
 
     // Phương thức để lấy danh sách nhân viên
     public List<Employee> getEmployees() {
-        return employees;
+        return employeeManager.displayEmployee();
     }
 }
