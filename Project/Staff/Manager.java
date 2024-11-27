@@ -62,9 +62,4 @@ public class Manager extends Employee {
         System.out.println("Department: " + department);
         System.out.println("Salary Coefficient: " + salaryCoefficient);
     }
-
-    public void displayEmployee(Manager newManager) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'displayEmployee'");
-    }
 }

@@ -8,21 +8,23 @@ import Project.ArrayList.LaptopManage;
 import Project.File.DataImport;
 import Project.Product.Laptop;
 import Project.Staff.Employee;
+import Project.Staff.Manager;
+import Project.Staff.Saler;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        //todo: Khởi tạo đối tượng quản lý
+        // todo: Khởi tạo đối tượng quản lý
         EmployeeManage employeeManager = new EmployeeManage();
         LaptopManage laptopManager = new LaptopManage();
 
-        //todo: Import dữ liệu từ file thông qua DataImport
+        // todo: Import dữ liệu từ file thông qua DataImport
         DataImport dataImport = new DataImport(employeeManager, laptopManager);
         dataImport.importProducts();
         dataImport.importStaff();
 
-        //todo: Lấy danh sách đã import để sử dụng
+        // todo: Lấy danh sách đã import để sử dụng
         List<Laptop> laptops = laptopManager.displayLaptops();
         List<Employee> employees = employeeManager.displayEmployee();
 
@@ -77,6 +79,7 @@ public class Main {
             System.out.println("1. Hien thi danh sach Laptop");
             System.out.println("2. Tim kiem Laptop");
             System.out.println("3. Xoa Laptop theo ID");
+            System.out.println("4.Them Laptop moi ");
             System.out.println("0. Quay lai");
             System.out.print("Nhap thao tac muon thuc hien: ");
             choice = scanner.nextInt();
@@ -114,6 +117,60 @@ public class Main {
                         System.out.println("Khong tim thay Laptop voi ID : " + deleteId);
                     }
                     break;
+                case 4:
+                    System.out.println("Nhap thong tin Laptop moi:");
+                    System.out.print("ID: ");
+                    int id = scanner.nextInt();
+                    scanner.nextLine(); // Xóa bộ đệm
+                    System.out.print("Ten: ");
+                    String name = scanner.nextLine();
+                    System.out.print("Hang san xuat: ");
+                    String maker = scanner.nextLine();
+                    System.out.print("Gia: ");
+                    double price = scanner.nextDouble();
+                    scanner.nextLine();
+                    System.out.print("Loai: ");
+                    String type = scanner.nextLine();
+                    System.out.print("Can nang: ");
+                    double weight = scanner.nextDouble();
+                    scanner.nextLine();
+                    System.out.print("Model: ");
+                    String model = scanner.nextLine();
+                    System.out.print("Thoi gian bao hanh (thang): ");
+                    int warrantyPeriod = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Ngay phat hanh: ");
+                    String releaseDate = scanner.nextLine();
+                    System.out.print("Processor: ");
+                    String processor = scanner.nextLine();
+                    System.out.print("RAM (GB): ");
+                    int ram = scanner.nextInt();
+                    System.out.print("Storage (GB): ");
+                    int storage = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Card do hoa: ");
+                    String graphicsCard = scanner.nextLine();
+                    System.out.print("Mau sac: ");
+                    String color = scanner.nextLine();
+                    System.out.print("Thoi luong pin (gio): ");
+                    int batteryLife = scanner.nextInt();
+                    System.out.print("Kich thuoc man hinh (inch): ");
+                    double screenSize = scanner.nextDouble();
+                    scanner.nextLine();
+                    System.out.print("He dieu hanh: ");
+                    String operatingSystem = scanner.nextLine();
+                    System.out.print("Bo nho do hoa (GB): ");
+                    int graphicsMemory = scanner.nextInt();
+                    System.out.print("Cong suat Adapter (W): ");
+                    double adapter = scanner.nextDouble();
+
+                    // Tạo đối tượng Laptop và thêm vào hệ thống
+                    Laptop newLaptop = new Laptop(name, id, maker, price, type, weight, model, warrantyPeriod,
+                            releaseDate, processor, ram, storage, graphicsCard, color, batteryLife, screenSize,
+                            operatingSystem, graphicsMemory, adapter);
+                    laptopManager.addLaptop(newLaptop);
+                    System.out.println("Da them Laptop moi vao he thong.");
+                    break;
                 case 0:
                     System.out.println("Quay lai MENU.");
                     break;
@@ -130,6 +187,7 @@ public class Main {
             System.out.println("1. Hien thi danh sach Saler");
             System.out.println("2. Tim kiem Saler theo ID");
             System.out.println("3. Xoa Saler theo ID");
+            System.out.println("4.Them Saler ");
             System.out.println("0. Quay lai");
             System.out.print("Nhap lua chon: ");
             choice = scanner.nextInt();
@@ -167,6 +225,33 @@ public class Main {
                         System.out.println("Khong tim thay Saler voi ID : " + deleteId + " trong he thong");
                     }
                     break;
+                case 4:
+                    System.out.println("Nhap thong tin Saler moi:");
+                    System.out.println("ID: ");
+                    String newSalerId = scanner.nextLine();
+                    System.out.println("Name: ");
+                    String newSalerName = scanner.nextLine();
+                    System.out.println("Email: ");
+                    String newSalerEmail = scanner.nextLine();
+                    System.out.println("Phone Number: ");
+                    String newSalerPhone = scanner.nextLine();
+                    System.out.println("Position: ");
+                    String newSalerPosition = scanner.nextLine();
+                    System.out.println("Salary: ");
+                    double newSalerSalary = scanner.nextDouble();
+                    scanner.nextLine();
+                    System.out.println("Sales Target: ");
+                    int newSalerSalesTarget = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Product Sold: ");
+                    int newSalerProductSold = scanner.nextInt();
+                    scanner.nextLine();
+                    Saler newSaler = new Saler(newSalerId, newSalerName, newSalerEmail, newSalerPhone, newSalerPosition, newSalerSalary, newSalerSalesTarget, newSalerProductSold);
+                    employeeManager.addEmployee(newSaler);
+                    System.out.println("Da them Saler vao thanh cong");
+                    break;
+
+
                 case 0:
                     System.out.println("Quay lai menu chinh.");
                     break;
@@ -183,14 +268,15 @@ public class Main {
             System.out.println("1. Hien thi danh sach Manager");
             System.out.println("2. Tim kiem Manager theo ID");
             System.out.println("3. Xoa Manager theo ID");
+            System.out.println("4. Them Manager ");
             System.out.println("0. Quay lai");
             System.out.print("Nhap lua chon: ");
             choice = scanner.nextInt();
             scanner.nextLine();
-    
+
             switch (choice) {
                 case 1:
-                    //todo: Hiển thị danh sách Manager
+                    // todo: Hiển thị danh sách Manager
                     List<Employee> managers = employeeManager.getEmployeesByPosition("Manager");
                     if (managers.isEmpty()) {
                         System.out.println("Khong con Manager co trong he thong");
@@ -201,7 +287,7 @@ public class Main {
                     }
                     break;
                 case 2:
-                    //todo: Tìm kiếm Manager theo ID
+                    // todo: Tìm kiếm Manager theo ID
                     System.out.print("Nhap ID Manager can tim: ");
                     String managerId = scanner.nextLine();
                     Employee foundManager = employeeManager.searchEmployee(managerId);
@@ -223,6 +309,30 @@ public class Main {
                         System.out.println("Khong tim thay Managre voi ID : " + deleteId + " trong he thong");
                     }
                     break;
+                case 4:
+                    System.out.println("Nhap thong tin cua Manager");
+                    System.out.println("ID: ");
+                    String newManagerId = scanner.nextLine();
+                    System.out.println("Name: ");
+                    String newManagerName = scanner.nextLine();
+                    System.out.println("Email: ");
+                    String newManagerEmail = scanner.nextLine();
+                    System.out.println("Phone Number: ");
+                    String newManagerPhone = scanner.nextLine();
+                    System.out.println("Position: ");
+                    String newManagerPosition = scanner.nextLine();
+                    System.out.println("Salary: ");
+                    double newManagerSalary = scanner.nextDouble();
+                    scanner.nextLine();
+                    System.out.println("Department: ");
+                    String newManagerDepartment = scanner.nextLine();
+                    System.out.println("Salary Coefficient: ");
+                    double newManagerSalaryCoefficient = scanner.nextDouble();
+                    scanner.nextLine();
+                    Manager newManager = new Manager(newManagerId, newManagerName, newManagerEmail, newManagerPhone, newManagerPosition, newManagerSalary, newManagerDepartment, newManagerSalaryCoefficient);
+                    employeeManager.addEmployee(newManager);
+                    System.out.println("Da them Saler vao thanh cong");
+                    break;
                 case 0:
                     System.out.println("Quay lai MENNU.");
                     break;
@@ -231,5 +341,5 @@ public class Main {
             }
         } while (choice != 0);
     }
-    
+
 }
