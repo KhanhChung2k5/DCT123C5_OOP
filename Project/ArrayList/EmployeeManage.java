@@ -22,7 +22,7 @@ public class EmployeeManage {
         
         public List<Employee> displayEmployee(){
             return employees;
-        }//chắc không dùng tới..
+        }
         
         public  void  addEmployee(Employee newEmployee){
             employees.add(newEmployee);
