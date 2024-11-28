@@ -6,7 +6,7 @@ public class Saler extends Employee {
 
     // * Constructor */
     public Saler(String id, String name, String email, String phoneNumber, String position, double salary,
-                 int salesTarget,int productsSold) {
+            int salesTarget, int productsSold) {
         super(id, name, email, phoneNumber, position, salary);
         this.salesTarget = salesTarget;
         this.productsSold = productsSold;
@@ -23,9 +23,11 @@ public class Saler extends Employee {
     public int getProductsSold() {
         return productsSold;
     }
+
     public void setProductsSold(int productsSold) {
         this.productsSold = productsSold;
     }
+
     @Override
     public double calculateSalary() {
         return Employee.calculateSalaryByKPI(getSalary(), productsSold); // Calculate salary based on products sold
@@ -34,22 +36,14 @@ public class Saler extends Employee {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-    sb.append("+------------------------+------------------------------+\n");
-    sb.append("|         Field          |            Value            |\n");
-    sb.append("+------------------------+------------------------------+\n");
-    sb.append(String.format("| %-22s | %-28s |\n", "ID", getId()));
-    sb.append(String.format("| %-22s | %-28s |\n", "Name", getName()));
-    sb.append(String.format("| %-22s | %-28s |\n", "Email", getEmail()));
-    sb.append(String.format("| %-22s | %-28s |\n", "Phone Number", getPhoneNumber()));
-    sb.append(String.format("| %-22s | %-28s |\n", "Position", getPosition()));
-    sb.append(String.format("| %-22s | %-28.2f |\n", "Salary", getSalary()));
-    sb.append(String.format("| %-22s | %-28d |\n", "Sales Target", salesTarget));
-    sb.append(String.format("| %-22s | %-28d |\n", "Products Sold", productsSold));
-    sb.append("+------------------------+------------------------------+");
-    return sb.toString();
+        sb.append(super.toString());
+        sb.append(String.format("| %-22s | %-28d |\n", "Sales Target", salesTarget));
+        sb.append(String.format("| %-22s | %-28d |\n", "Products Sold", productsSold));
+        sb.append("+------------------------+------------------------------+");
+        return sb.toString();
     }
 
-    public void toInfo(){
+    public void toInfo() {
         System.out.println("Saler information");
         System.out.println("ID: " + getId());
         System.out.println("Name: " + getName());
@@ -57,7 +51,7 @@ public class Saler extends Employee {
         System.out.println("Phone number: " + getPhoneNumber());
         System.out.println("Position: " + getPosition());
         System.out.println("Salary: " + calculateSalary());
-        System.out.println("Sales target: " + salesTarget); // update getSalerTarget vs getProductSold 
-        System.out.println("Products sold: " + productsSold); // ko co get ban dau 
+        System.out.println("Sales target: " + salesTarget); // update getSalerTarget vs getProductSold
+        System.out.println("Products sold: " + productsSold); // ko co get ban dau
     }
 }
