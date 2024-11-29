@@ -7,7 +7,7 @@ import Project.Staff.Saler;
 public class Bill {
 
     private Customer customer;
-    private String phoneNumber; 
+    private String phoneNumber;
     private Laptop laptop;
     private Saler saler;
     private String billId;
@@ -35,12 +35,12 @@ public class Bill {
         this.customer = customer;
     }
 
-    //todo: update Customer phoneNumber sang String phoneNumber 
+    // todo: update Customer phoneNumber sang String phoneNumber
 
     public String getPhoneNumber() {
         return phoneNumber;
     }
-    
+
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
@@ -88,14 +88,14 @@ public class Bill {
     @Override
     public String toString() {
         return "Bill: " +
-                "Customer = " + customer +
-                ", Customer Phonenumber = " + phoneNumber + 
-                ", Laptop = " + laptop +
-                ", Saler = " + saler +
-                ", Bill ID = '" + billId + '\'' +
+                "Customer  " + customer +
+                ", Customer Phonenumber = " + phoneNumber +
+                "\n Laptop = " + laptop +
+                "\n Saler = " + saler +
+                "\n Bill ID = '" + billId + '\'' +
                 ", Date = '" + date + '\'' +
                 ", Total amount = " + totalAmount +
-                '}';
+                "}\n";
     }
 
     public void toInfo() {
