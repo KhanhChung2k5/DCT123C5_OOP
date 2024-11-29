@@ -21,20 +21,21 @@ public class DataB {
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
 
-                // System.out.println("Số trường trong dòng: " + data.length); // fix bug
 
-                if (data.length < 35) { // todo fix bug tu 35 sang 40
+                if (data.length < 35) { 
                     System.out.println("Du lieu khong day du: " + line);
                     continue;
                 }
                 try {
-                    // Tạo đối tượng Customer từ dữ liệu
+
+                    //? Tạo đối tượng Customer từ dữ liệu
+
                     Customer customer = new Customer(data[0], data[1], data[2], data[3], data[4]);
 
                     // Tạo đối tượng Laptop từ dữ liệu
                     Laptop laptop = new Laptop(
                             data[5], // name
-                            Integer.parseInt(data[6]), // id TODO: update type id
+                            Integer.parseInt(data[6]), 
                             data[7], // maker
                             Double.parseDouble(data[8]), // price
                             data[9], // type

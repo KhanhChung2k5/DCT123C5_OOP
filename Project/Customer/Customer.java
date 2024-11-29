@@ -15,7 +15,8 @@ public class Customer {
         this.address = address;
     }
 
-    // Getters và setters
+    //todo: cac phuong thuc get , set cho tung thuoc tinh
+    
     public String getId() {
         return id;
     }

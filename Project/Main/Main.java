@@ -39,11 +39,13 @@ public class Main {
         //todo: Lấy danh sách hóa đơn từ DataB
         List<Bill> bills = dataB.getBills();
 
+
         //todo: Hiển thị danh sách hóa đơn
         System.out.println("Danh sach hoa don da nhap:");
         if (bills.isEmpty()) {
             System.out.println("Không có hóa đơn nào.");
         }
+        
 
         List<Laptop> laptops = laptopManager.displayLaptops();
         List<Employee> employees = employeeManager.displayEmployee();
@@ -96,6 +98,9 @@ public class Main {
                 case 4:
                     //todo: quan ly khach hang
                     managerCustomer(scanner, customerManager);
+                    
+                case 5:
+
                 case 0:
                     System.out.println("Thoat chuong trinh.");
                     break;

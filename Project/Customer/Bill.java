@@ -7,7 +7,7 @@ import Project.Staff.Saler;
 public class Bill {
 
     private Customer customer;
-    private String phoneNumber; // update tu Customer sang String
+    private String phoneNumber; 
     private Laptop laptop;
     private Saler saler;
     private String billId;
@@ -89,7 +89,7 @@ public class Bill {
     public String toString() {
         return "Bill: " +
                 "Customer = " + customer +
-                ", Customer Phonenumber = " + phoneNumber + //todo: fix bug
+                ", Customer Phonenumber = " + phoneNumber + 
                 ", Laptop = " + laptop +
                 ", Saler = " + saler +
                 ", Bill ID = '" + billId + '\'' +

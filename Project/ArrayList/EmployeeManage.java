@@ -11,40 +11,43 @@ import Project.Staff.Manager;
 import Project.Staff.Saler;
 import Project.File.DataImport;
 
-@SuppressWarnings("unused") 
+@SuppressWarnings("unused")
 public class EmployeeManage {
     Scanner scanner = new Scanner(System.in);
     private List<Employee> employees = new ArrayList<>();
 
-        public EmployeeManage(){
-            this.employees = new ArrayList<>();
-        }
-        
-        public List<Employee> displayEmployee(){
-            return employees;
-        }
-        
-        public  void  addEmployee(Employee newEmployee){
-            employees.add(newEmployee);
-        }
+    public EmployeeManage() {
+        this.employees = new ArrayList<>();
+    }
 
-        public Employee searchEmployee(String id){
-            for (Employee employee : employees) {
-                if (employee.getId() != null && employee.getId().equals(id)) {
-                    return employee;
-                }
-            }
-            return null;
-        }
+    public List<Employee> displayEmployee() {
+        return employees;
+    }
 
-        public boolean DeleteEmployee(String id){
-            Employee findEmployee = searchEmployee(id);
-            if (findEmployee != null) {
-                employees.remove(findEmployee);
-                return true;
+    // todo: ham them nhan vien
+    public void addEmployee(Employee newEmployee) {
+        employees.add(newEmployee);
+    }
+
+    // todo: ham tim kiem nhan vien
+    public Employee searchEmployee(String id) {
+        for (Employee employee : employees) {
+            if (employee.getId() != null && employee.getId().equals(id)) {
+                return employee;
             }
-            return false;
         }
+        return null;
+    }
+
+    // todo: ham xoa nhan vien
+    public boolean DeleteEmployee(String id) {
+        Employee findEmployee = searchEmployee(id);
+        if (findEmployee != null) {
+            employees.remove(findEmployee);
+            return true;
+        }
+        return false;
+    }
 
     public void deleteAllSaler() {
         for (int i = employees.size() - 1; i >= 0; i--) {
@@ -53,6 +56,7 @@ public class EmployeeManage {
             }
         }
     }
+
     public void deleteAllManage() {
         for (int i = employees.size() - 1; i >= 0; i--) {
             if (employees.get(i) instanceof Manager) {
@@ -61,6 +65,7 @@ public class EmployeeManage {
         }
     }
 
+    // ? ham lay nhan vien theo vi tri cua Nhan vien la "Saler" or "Manager"
     public List<Employee> getEmployeesByPosition(String position) {
         List<Employee> filteredEmployees = new ArrayList<>();
         for (Employee employee : employees) {
@@ -71,12 +76,14 @@ public class EmployeeManage {
         return filteredEmployees;
     }
 
+    // todo: ham chinh sua thong tin Saler
     public void editSaler() {
         System.out.println("Choose a Saler to edit (ID):");
         String searchIdToEdit = scanner.nextLine();
         Saler salerToEdit = null;
 
-        // Tìm kiếm Saler
+        // ? ham tim kiem Saler
+
         for (Employee employee : employees) {
             if (employee instanceof Saler && employee.getId().equalsIgnoreCase(searchIdToEdit)) {
                 salerToEdit = (Saler) employee;
@@ -89,7 +96,7 @@ public class EmployeeManage {
             return;
         }
 
-        // Thực hiện chỉnh sửa thông tin Saler
+        // * thuc hien chinh sua thong tin saler */
         int choice;
         do {
             System.out.println("\n--- Edit Saler Information ---");
@@ -146,13 +153,15 @@ public class EmployeeManage {
         } while (choice != 0);
     }
 
-    // Hàm chỉnh sửa thông tin Manager
+    // * ham chinh sua thong tin Manager */
+
     public void editManager() {
         System.out.println("Chon Manager muon sua voi (ID):");
         String searchIdToEdit = scanner.nextLine();
         Manager managerToEdit = null;
 
-        // Tìm kiếm Manager
+        // * ham tim kiem Manager */
+
         for (Employee employee : employees) {
             if (employee instanceof Manager && employee.getId().equalsIgnoreCase(searchIdToEdit)) {
                 managerToEdit = (Manager) employee;
@@ -165,7 +174,8 @@ public class EmployeeManage {
             return;
         }
 
-        // Thực hiện chỉnh sửa thông tin Manager
+        // ? Thực hiện chỉnh sửa thông tin Manager
+
         int choice;
         do {
             System.out.println("\n--- Chinh sua thong tin Manager ---");
@@ -221,4 +231,3 @@ public class EmployeeManage {
         } while (choice != 0);
     }
 }
-

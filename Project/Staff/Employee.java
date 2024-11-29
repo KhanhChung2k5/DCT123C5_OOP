@@ -1,23 +1,18 @@
 package Project.Staff;
 
-// import java.util.ArrayList;
 // import java.util.List;
 
 import java.util.Scanner;
 
 public abstract class Employee {
-    // NOTE -
-    // private static List<Employee> employeeList = new ArrayList<>();
 
-    // private static int employeeCount = 0; // * */ Static variable to count
-    // employees
     private static int employeeCount = 0;
     private static int rewardPerProduct = 1_000_000;
 
     private String id;
     private String name;
     private String email;
-    private String phoneNumber; // Đảm bảo phoneNumber có tối đa 10 số
+    private String phoneNumber; 
     private String position;
     private double salary;
 
@@ -29,25 +24,7 @@ public abstract class Employee {
         setPhoneNumber(phoneNumber); // * */ Use the setter to validate the phone number
         this.position = position;
         this.salary = salary;
-        // employeeCount++;
     }
-
-    // public static int getEmployeeCount() {
-    // return employeeCount;
-    // }
-    // NOTE -
-    // public static void addEmployee(Employee employee) {
-    // employeeList.add(employee);
-    // }
-
-    // public static void removeEmployee(Employee employee) {
-    // employeeList.remove(employee);
-    // employeeCount--; // Decrement employee count when an employee is removed
-    // }
-
-    // public static List<Employee> getEmployees() {
-    // return new ArrayList<>(employeeList); // Return a copy of the employee list
-    // }
 
     public String getId() {
         return id;
