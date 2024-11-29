@@ -36,37 +36,38 @@ public class Main {
         DataB dataB = new DataB();
         dataB.importBills();
 
-        //todo: Lấy danh sách hóa đơn từ DataB
+        // todo: Lấy danh sách hóa đơn từ DataB
         List<Bill> bills = dataB.getBills();
 
-
-        //todo: Hiển thị danh sách hóa đơn
-        System.out.println("Danh sach hoa don da nhap:");
-        if (bills.isEmpty()) {
-            System.out.println("Không có hóa đơn nào.");
-        }
-        
+        // // todo: Hiển thị danh sách hóa đơn
+        // System.out.println("Danh sach hoa don da nhap:");
+        // if (bills.isEmpty()) {
+        // System.out.println("Không có hóa đơn nào.");
+        // } else {
+        // for (Bill bill : bills) {
+        // System.out.println(bill);
+        // }
+        // }
 
         List<Laptop> laptops = laptopManager.displayLaptops();
         List<Employee> employees = employeeManager.displayEmployee();
         List<Customer> customers = customerManager.displayCustomers();
 
-        
-        //todo: kiem tra cac file xem cac file co bi loi hay chua co du lieu hay khong
+        // todo: kiem tra cac file xem cac file co bi loi hay chua co du lieu hay khong
         if (laptops.isEmpty()) {
             System.out.println("Khong co du lieu san pham duoc doc tu file.");
         }
         if (employees.isEmpty()) {
             System.out.println("Khong co nhan vien nao duoc doc tu file.");
-        } 
-        if (customers.isEmpty()){
+        }
+        if (customers.isEmpty()) {
             System.out.println("Khong co du lieu duoc doc tu file.");
         }
-       
+
         int choiceLaptopOrEmployee = 0;
         do {
 
-            //todo: thiet ke MENU de lua chon cac thao tac muon thuc hien
+            // todo: thiet ke MENU de lua chon cac thao tac muon thuc hien
 
             System.out.println("\n--- Quan ly Laptop va nhan vien cua cua hang ---");
             System.out.println("1. Quan ly Laptop");
@@ -81,26 +82,33 @@ public class Main {
 
             switch (choiceLaptopOrEmployee) {
                 case 1:
-                    //todo: quan ly laptop
+                    // todo: quan ly laptop
 
                     manageLaptops(scanner, laptopManager);
                     break;
                 case 2:
-                    //todo: quan ly Saler
+                    // todo: quan ly Saler
 
                     manageSaler(scanner, employeeManager);
                     break;
                 case 3:
-                    //todo: quan ly Mannager
+                    // todo: quan ly Mannager
 
                     manageManager(scanner, employeeManager);
                     break;
                 case 4:
-                    //todo: quan ly khach hang
+                    // todo: quan ly khach hang
                     managerCustomer(scanner, customerManager);
-                    
-                case 5:
 
+                case 5:
+                    List<Bill> bill2s = dataB.getBills();
+                    if (bill2s.isEmpty()) {
+                        System.out.println("Không có hóa đơn nào.");
+                    } else {
+                        for (Bill bill : bill2s) {
+                            System.out.println(bill);
+                        }
+                    }
                 case 0:
                     System.out.println("Thoat chuong trinh.");
                     break;
@@ -115,7 +123,8 @@ public class Main {
     private static void manageLaptops(Scanner scanner, LaptopManage laptopManager) {
         int choice;
         do {
-            //todo: thiet ke Menu de lua chon cac thao tac muon thuc hien trong quan ly Laptop
+            // todo: thiet ke Menu de lua chon cac thao tac muon thuc hien trong quan ly
+            // Laptop
 
             System.out.println("\n--- Quan ly Laptop ---");
             System.out.println("1. Hien thi danh sach Laptop");
@@ -130,7 +139,7 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    //todo: goi lai mang luu tru laptop de hien thi ra
+                    // todo: goi lai mang luu tru laptop de hien thi ra
 
                     List<Laptop> laptops = laptopManager.displayLaptops();
                     if (laptops.isEmpty()) {
@@ -142,29 +151,32 @@ public class Main {
                     }
                     break;
                 case 2:
-                    //todo: Xu li viec tim kiem Laptop bang cach tim kiem them ID
+                    // todo: Xu li viec tim kiem Laptop bang cach tim kiem them ID
 
                     System.out.print("Nhap ID Laptop can tim kiem: ");
                     int findId = scanner.nextInt();
-                    
-                    //todo: goi lai ham co san trong LaptopManage de thuc hien viec tim kiem Laptop
+
+                    // todo: goi lai ham co san trong LaptopManage de thuc hien viec tim kiem Laptop
 
                     Laptop foundLaptop = laptopManager.searchLaptop(findId);
 
-                    //todo: neu  khac null tuc la ham da dung va ID do ton tai trong du lieu thi tra ve thong tin Laptop can tim kiem
+                    // todo: neu khac null tuc la ham da dung va ID do ton tai trong du lieu thi tra
+                    // ve thong tin Laptop can tim kiem
                     if (foundLaptop != null) {
                         System.out.println("Thong tin Laptop:");
                         System.out.println(foundLaptop);
                     } else {
 
-                        //todo: nguoc lai thi co nghia tra ve cua ham Search da la null tuc la khong ton tai Laptop voi ID do
+                        // todo: nguoc lai thi co nghia tra ve cua ham Search da la null tuc la khong
+                        // ton tai Laptop voi ID do
 
                         System.out.println("Khong tim thay Laptop voi ID : " + findId + "  trong he thong");
                     }
                     break;
                 case 3:
-                    
-                    //todo: tuong tu nhu ham tim kiem trong ham nay thuc hien chuc nang xoa Laptop theo ID trong ham nay su dung lai logic tim kiem ID cua ham Search truoc do
+
+                    // todo: tuong tu nhu ham tim kiem trong ham nay thuc hien chuc nang xoa Laptop
+                    // theo ID trong ham nay su dung lai logic tim kiem ID cua ham Search truoc do
 
                     System.out.print("Nhap ID Laptop can xoa: ");
                     int deleteId = scanner.nextInt();
@@ -177,7 +189,8 @@ public class Main {
                     break;
                 case 4:
 
-                    //todo: thuc hien chuc nang them Laptop moi vao he thong va nhap lan luot tung thong so cua Laptop 
+                    // todo: thuc hien chuc nang them Laptop moi vao he thong va nhap lan luot tung
+                    // thong so cua Laptop
 
                     System.out.println("Nhap thong tin Laptop moi:");
                     System.out.print("ID: ");
@@ -225,18 +238,19 @@ public class Main {
                     System.out.print("Cong suat Adapter (W): ");
                     double adapter = scanner.nextDouble();
 
-                    //todo: tao doi duong laptop moi va them vao he thong 
+                    // todo: tao doi duong laptop moi va them vao he thong
                     Laptop newLaptop = new Laptop(name, id, maker, price, type, weight, model, warrantyPeriod,
                             releaseDate, processor, ram, storage, graphicsCard, color, batteryLife, screenSize,
                             operatingSystem, graphicsMemory, adapter);
 
-                    //todo: add vao quan ly va tra ve thong bao da duoc them thanh cong
+                    // todo: add vao quan ly va tra ve thong bao da duoc them thanh cong
 
                     laptopManager.addLaptop(newLaptop);
                     System.out.println("Da them Laptop moi vao he thong.");
                     break;
                 case 5:
-                    //todo: goi lai ham editLaptop da duoc thiet ke truoc do trong File LaptopManage voi muc tieu la chinh sua cac thong so cua laptops
+                    // todo: goi lai ham editLaptop da duoc thiet ke truoc do trong File
+                    // LaptopManage voi muc tieu la chinh sua cac thong so cua laptops
 
                     laptopManager.editLaptop();
                     break;
@@ -252,7 +266,7 @@ public class Main {
     private static void manageSaler(Scanner scanner, EmployeeManage employeeManager) {
         int choice;
         do {
-            //todo: hien thi Menu cac thao tac muon thuc hien va lua chon 
+            // todo: hien thi Menu cac thao tac muon thuc hien va lua chon
 
             System.out.println("\n--- Quan ly Saler ---");
             System.out.println("1. Hien thi danh sach Saler");
@@ -267,7 +281,8 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    //todo: su dung ham getEmployeePosition voi key word la "Saler" de chi lay thong tin Saler
+                    // todo: su dung ham getEmployeePosition voi key word la "Saler" de chi lay
+                    // thong tin Saler
                     List<Employee> salers = employeeManager.getEmployeesByPosition("Saler");
                     if (salers.isEmpty()) {
                         System.out.println("Hien tai chua co nhan vien trong he thong.");
@@ -279,12 +294,14 @@ public class Main {
                     break;
                 case 2:
 
-                    //todo: truyen vao ID Saler can tim va se goi lai ham searchEmployee co san de kiem tra xem Saler voi ID do co ton tai hay khong
+                    // todo: truyen vao ID Saler can tim va se goi lai ham searchEmployee co san de
+                    // kiem tra xem Saler voi ID do co ton tai hay khong
                     System.out.print("Nhap ID Saler de tim : ");
                     String salerId = scanner.nextLine();
                     Employee foundSaler = employeeManager.searchEmployee(salerId);
                     if (foundSaler != null) {
-                        //todo: check neu foundSaler khac null tuc la ham searchEmployee da dung thi ID Saler do co ton tai trong he thong va tra ve thong tin cua Saler dp
+                        // todo: check neu foundSaler khac null tuc la ham searchEmployee da dung thi ID
+                        // Saler do co ton tai trong he thong va tra ve thong tin cua Saler dp
                         System.out.println("Thong tin Saler:");
                         System.out.println(foundSaler);
                     } else {
@@ -292,24 +309,26 @@ public class Main {
                     }
                     break;
                 case 3:
-                    //todo: ta se dung ham deleteEmployee de xoa Saler voi ID do va trong ham Delete se co su dung ham searchEmployee de tim ID do xem co ton tai hay khong
+                    // todo: ta se dung ham deleteEmployee de xoa Saler voi ID do va trong ham
+                    // Delete se co su dung ham searchEmployee de tim ID do xem co ton tai hay khong
 
                     System.out.print("Nhap ID Saler de xoa: ");
                     String deleteId = scanner.nextLine();
                     boolean isDeleted = employeeManager.DeleteEmployee(deleteId);
                     if (isDeleted) {
 
-                        //todo: neu ham nay dumg thi Saler ID do se xoa thanh cong nen se xuat ra tb Saler da duoc xoa thanh cong 
+                        // todo: neu ham nay dumg thi Saler ID do se xoa thanh cong nen se xuat ra tb
+                        // Saler da duoc xoa thanh cong
 
                         System.out.println("Da xoa Saler thanh cong.");
                     } else {
-                        //todo: nguoc lai thi co nghia saler voi ID do khong ton tai trong he thong 
+                        // todo: nguoc lai thi co nghia saler voi ID do khong ton tai trong he thong
                         System.out.println("Khong tim thay Saler voi ID : " + deleteId + " trong he thong");
                     }
                     break;
                 case 4:
 
-                    //todo: nhap vao tung thong tin cua Saler de add vao he thong 
+                    // todo: nhap vao tung thong tin cua Saler de add vao he thong
 
                     System.out.println("Nhap thong tin Saler moi:");
                     System.out.println("ID: ");
@@ -334,14 +353,14 @@ public class Main {
                     Saler newSaler = new Saler(newSalerId, newSalerName, newSalerEmail, newSalerPhone, newSalerPosition,
                             newSalerSalary, newSalerSalesTarget, newSalerProductSold);
 
-                            //todo: goi lai ham  addEmployee de add Saler moi vao de quan ly
+                    // todo: goi lai ham addEmployee de add Saler moi vao de quan ly
 
                     employeeManager.addEmployee(newSaler);
                     System.out.println("Da them Saler vao thanh cong");
                     break;
                 case 5:
-                    
-                    //todo: goi lai ham de thuc hien chinh sua cac thong tin cua Saler 
+
+                    // todo: goi lai ham de thuc hien chinh sua cac thong tin cua Saler
 
                     employeeManager.editSaler();
 
@@ -357,7 +376,8 @@ public class Main {
     private static void manageManager(Scanner scanner, EmployeeManage employeeManager) {
         int choice;
         do {
-            //todo: Logic cua ham nay cung tuong tu nhu quan ly Saler nhung co mot vai bien khac nhau 
+            // todo: Logic cua ham nay cung tuong tu nhu quan ly Saler nhung co mot vai bien
+            // khac nhau
 
             System.out.println("\n--- Quan ly Manager ---");
             System.out.println("1. Hien thi danh sach Manager");
@@ -430,10 +450,10 @@ public class Main {
                     employeeManager.addEmployee(newManager);
                     System.out.println("Da them Saler vao thanh cong");
                     break;
-                
+
                 case 5:
                     employeeManager.editManager();
-                
+
                 case 0:
                     System.out.println("Quay lai MENNU.");
                     break;
@@ -447,7 +467,7 @@ public class Main {
         int choice;
         do {
 
-            //todo: hien thi menu cac thao tac muon thuc hien trong quan ly Customer 
+            // todo: hien thi menu cac thao tac muon thuc hien trong quan ly Customer
 
             System.out.println("\n--- Quan ly Khach Hang ---");
             System.out.println("1. Hien thi danh sach Khach Hang");
@@ -461,7 +481,7 @@ public class Main {
             choice = scanner.nextInt();
             scanner.nextLine();
 
-            //todo: Logic xu li cac ham cung se tuong tu nhu quan ly Saler va Manager
+            // todo: Logic xu li cac ham cung se tuong tu nhu quan ly Saler va Manager
 
             switch (choice) {
                 case 1:

@@ -1,2 +1,5 @@
 Laptop A,1,Maker A,1000.0,Laptop,2.5,Model A,24,2023-01-01,Intel i7,16,512,NVIDIA GTX 1650,Black,5,15.6,Windows 10,4,65
 Laptop B,2,Maker B,1200.0,Laptop,2.0,Model B,12,2023-01-02,Intel i5,8,256,NVIDIA GTX 1650,Silver,4,14.0,Windows 10,4,65
+Laptop C,3,Maker B,1200.0,Laptop,2.0,Model B,12,2023-01-02,Intel i5,8,256,NVIDIA GTX 1650,Silver,4,14.0,Windows 10,4,65
+Laptop D,4,Maker B,1200.0,Laptop,2.0,Model B,12,2023-01-02,Intel i5,8,256,NVIDIA GTX 1650,Silver,4,14.0,Windows 10,4,65
+Laptop E,5,Maker B,1200.0,Laptop,2.0,Model B,12,2023-01-02,Intel i5,8,256,NVIDIA GTX 1650,Silver,4,14.0,Windows 10,4,65

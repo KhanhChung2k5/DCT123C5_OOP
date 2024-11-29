@@ -55,7 +55,7 @@ public class Laptop extends Product {
         
         //? Hiển thị thông số kỹ thuật chi tiết của laptop
         StringBuilder sb = new StringBuilder();
-        sb.append("+------------------------+------------------------------+\n");
+        sb.append("\n+------------------------+------------------------------+\n");
         sb.append("|         Field          |            Value            |\n");
         sb.append("+------------------------+------------------------------+\n");
         sb.append(String.format("| %-22s | %-28s |\n", "ID", getId()));
