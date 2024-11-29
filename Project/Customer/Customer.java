@@ -1,24 +1,21 @@
 package Project.Customer;
 
-import java.util.Scanner;
-
 public class Customer {
-    public static Customer[] data;
     private String id;
     private String name;
     private String email;
     private String phoneNumber;
     private String address;
 
-    // * Constructor */
     public Customer(String id, String name, String email, String phoneNumber, String address) {
         this.id = id;
         this.name = name;
         this.email = email;
-        setPhoneNumber(phoneNumber); //* */ Use the setter method to validate the phone number
+        this.phoneNumber = phoneNumber;
         this.address = address;
     }
 
+    // Getters và setters
     public String getId() {
         return id;
     }
@@ -47,14 +44,7 @@ public class Customer {
         return phoneNumber;
     }
 
-    @SuppressWarnings("resource")
     public void setPhoneNumber(String phoneNumber) {
-        Scanner scanner = new Scanner(System.in);
-
-        while (phoneNumber == null || phoneNumber.length() != 10 || !phoneNumber.matches("\\d+")) {
-            System.out.println("Sai dinh dang vui long nhap lai:");
-            phoneNumber = scanner.nextLine().trim();
-        }
         this.phoneNumber = phoneNumber;
     }
 
@@ -66,24 +56,19 @@ public class Customer {
         this.address = address;
     }
 
+    // Hiển thị thông tin khách hàng kèm hóa đơn
     @Override
     public String toString() {
-        return "Customer{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", address='" + address + '\'' +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("+------------------------+------------------------------+\n");
+        sb.append("|       Customer Info    |                            |\n");
+        sb.append("+------------------------+------------------------------+\n");
+        sb.append(String.format("| %-22s | %-28s |\n", "ID", id));
+        sb.append(String.format("| %-22s | %-28s |\n", "Name", name));
+        sb.append(String.format("| %-22s | %-28s |\n", "Email", email));
+        sb.append(String.format("| %-22s | %-28s |\n", "Phone Number", phoneNumber));
+        sb.append(String.format("| %-22s | %-28s |\n", "Address", address));
+        sb.append("+------------------------------------------------------+\n");
+        return sb.toString();
     }
-
-    public void toInfo() {
-        System.out.println("Customer Infomation");
-        System.out.println("Name: " + name);
-        System.out.println("Id: " + id);
-        System.out.println("email: " + email);
-        System.out.println("Phone number: " + phoneNumber) ;
-        System.out.println("Address: " + address);
-    }
-
 }

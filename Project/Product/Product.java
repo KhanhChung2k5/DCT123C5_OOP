@@ -21,12 +21,12 @@ public abstract class Product {
         this.releaseDate = releaseDate;
     }
 
-    // Phương thức trừu tượng
-    public abstract void toInfo(); // hiên thị thong tin sản phẩm 
-    // public abstract String displaySpecifications(); // hiển thị thông số kỹ thuật chi tiết của Laptop //todo: debug
+    //todo: Phương thức trừu tượng
+    public abstract void toInfo(); 
     
 
-    // Get và Set cho từng thuộc tính trong class
+    //todo: Cac phuong thuc get va set cho tung thuoc tinh 
+
     public String getName(){
         return name;
     }

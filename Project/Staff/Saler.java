@@ -45,6 +45,7 @@ public class Saler extends Employee {
     sb.append(String.format("| %-22s | %-28.2f |\n", "Salary", getSalary()));
     sb.append(String.format("| %-22s | %-28d |\n", "Sales Target", salesTarget));
     sb.append(String.format("| %-22s | %-28d |\n", "Products Sold", productsSold));
+    sb.append(String.format("| %-22s | %-28d |\n", "Total Salary", calculateSalary()));
     sb.append("+------------------------+------------------------------+");
     return sb.toString();
     }

@@ -18,6 +18,7 @@ public class LaptopManage {
         laptops = new ArrayList<>();
     }
 
+    //todo: ham add them laptop moi vao mang
     public void addLaptop(Laptop laptop) {
         laptops.add(laptop);
     }
@@ -32,6 +33,7 @@ public class LaptopManage {
         return (ArrayList<Laptop>) laptops;
     }
 
+    //todo: ham de tim kiem Laptop theo Id 
     public Laptop searchLaptop(int idLaptop) {
         for (Laptop laptop : laptops) {
             if (laptop.getId() == idLaptop) {
@@ -40,11 +42,13 @@ public class LaptopManage {
         }
         return null;
     }
-
+    
+    //todo: ham de xoa tat ca Laptop
     public void deleteAllLaptops() {
         this.laptops.removeAll(this.laptops);
     }
 
+    //todo: ham chinh sua tung phan cac thong tin cua
     public void editLaptop() {
         System.out.println("Choose a laptop to edit (ID):");
         int searchIdToEdit = scanner.nextInt();
@@ -179,6 +183,10 @@ public class LaptopManage {
             }
         } while (yourChoice != 0);
     }
+
+    //todo: kieu tra ve la bool , ham nay thuc hien chuc nan xoa laptop goi lai ham searchLaptop de thuc hien xem Laptop voi ID muon xoa
+    //?? co ton tai trong he thong hay khong
+
     public boolean deleteLaptop(int id) {
         Laptop laptopToRemove = searchLaptop(id);
         if (laptopToRemove != null) {
