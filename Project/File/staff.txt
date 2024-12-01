@@ -1,5 +1,5 @@
 E001,John Doe,johndoe@example.com,0123456789,Manager,10000.0,IT,1.5
 E002,Jane Smith,janesmith@example.com,0987654321,Saler,3000.0,6,3
 E003,John Cena,janesmith@example.com,0987654321,Saler,3000.0,6,4
-E004,The Rock,janesmith@example.com,0987654321,Manager,3000.0,6,6
+E004,The Rock,janesmith@example.com,0987654321,Manager,3000.0,Marketing,6
 E005,Rich Choi,janesmith@example.com,0987654321,Saler,3000.0,6,2
