@@ -11,31 +11,42 @@ import Project.Customer.Customer;
 
 public class DataC {
     private List<Customer> customers = new ArrayList<>(); // Danh sách khách hàng
-        private CustomerManage customersManager;
-        public DataC(CustomerManage customerManager) {
-            this.customersManager = customerManager;
+
+    private CustomerManage customersManager;
+
+    // ? Constructor (HAS-A) sử dụng CustomerManage để thực hiện chức năng add
+    // ? thông qua đối tượng customerManager
+    public DataC(CustomerManage customerManager) {
+        this.customersManager = customerManager;
     }
 
-    // Phương thức để nhập dữ liệu khách hàng
+    // * */ Phương thức để nhập dữ liệu khách hàng
     public void importCustomers() {
         try (BufferedReader br = new BufferedReader(new FileReader("Project/File/customer.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
                 if (data.length < 5) {
-                    System.out.println("Dữ liệu không đầy đủ: " + line);
-                    continue; //todo: Bỏ qua dòng này nếu không đủ dữ liệu
+                    System.out.println("...: " + line);
+                    continue; // ? Bỏ qua dòng này nếu không đủ dữ liệu
                 }
-                Customer customer = new Customer(data[0], data[1], data[2], data[3], data[4]); //todo: Tạo đối tượng Customer từ dữ liệu
+                // * */ Tạo đối tượng Customer từ dữ liệu
+                Customer customer = new Customer(
+                        data[0], // id
+                        data[1], // name
+                        data[2], // email
+                        data[3], // phoneNumber
+                        data[4] // address
+                );
 
-                customersManager.addCustomer(customer); //todo: Thêm khách hàng mảng
+                customersManager.addCustomer(customer); //? Thêm Customer vào danh sách
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    //todo: Phương thức để lấy danh sách khách hàng
+    // * */ Phương thức để lấy danh sách khách hàng
     public List<Customer> getCustomers() {
         return customers;
     }
