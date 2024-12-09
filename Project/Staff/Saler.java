@@ -30,7 +30,7 @@ public class Saler extends Employee {
 
     @Override
     public double calculateSalary() {
-        return Employee.calculateSalaryByKPI(getSalary(), productsSold); // Calculate salary based on products sold
+        return getSalary() + (getProductsSold() * 1_000_000); //* */ Tính lương dựa trên số sản phẩm đã bán
     }
 
     @Override
@@ -39,6 +39,7 @@ public class Saler extends Employee {
         sb.append(super.toString());
         sb.append(String.format("| %-22s | %-28d |\n", "Sales Target", salesTarget));
         sb.append(String.format("| %-22s | %-28d |\n", "Products Sold", productsSold));
+        sb.append(String.format("| %-22s | %-28.2f |\n", "Total Salary", calculateSalary()));
         sb.append("+------------------------+------------------------------+");
         return sb.toString();
     }
@@ -51,7 +52,7 @@ public class Saler extends Employee {
         System.out.println("Phone number: " + getPhoneNumber());
         System.out.println("Position: " + getPosition());
         System.out.println("Salary: " + calculateSalary());
-        System.out.println("Sales target: " + salesTarget); // update getSalerTarget vs getProductSold
-        System.out.println("Products sold: " + productsSold); // ko co get ban dau
+        System.out.println("Sales target: " + salesTarget); 
+        System.out.println("Products sold: " + productsSold); 
     }
 }
