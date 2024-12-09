@@ -27,10 +27,10 @@ public class Manager extends Employee {
     public void setSalaryCoefficient(double salaryCoefficient) {
         this.salaryCoefficient = salaryCoefficient;
     }
-
+    
     @Override
     public double calculateSalary() {
-        return Employee.calculateSalaryByCoefficient(getSalary(), salaryCoefficient);
+        return getSalary() * salaryCoefficient; //* */ tính lương theo hệ số
     }
 
     @Override
