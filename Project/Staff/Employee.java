@@ -1,23 +1,15 @@
 package Project.Staff;
 
-// import java.util.ArrayList;
-// import java.util.List;
-
 import java.util.Scanner;
 
 public abstract class Employee implements EmployeeToString {
-    // NOTE -
-    // private static List<Employee> employeeList = new ArrayList<>();
 
-    // private static int employeeCount = 0; // * */ Static variable to count
-    // employees
     private static int employeeCount = 0;
-    private static int rewardPerProduct = 1_000_000;
-
+    
     private String id;
     private String name;
     private String email;
-    private String phoneNumber; // Đảm bảo phoneNumber có tối đa 10 số
+    private String phoneNumber; // Đảm bảo phoneNumber chỉ 10 số 
     private String position;
     private double salary;
 
@@ -26,28 +18,11 @@ public abstract class Employee implements EmployeeToString {
         this.id = id;
         this.name = name;
         this.email = email;
-        setPhoneNumber(phoneNumber); // * */ Use the setter to validate the phone number
+        setPhoneNumber(phoneNumber); //? xác thực dữ liệu (tính hợp lệ) */
         this.position = position;
         this.salary = salary;
         // employeeCount++;
     }
-
-    // public static int getEmployeeCount() {
-    // return employeeCount;
-    // }
-    // NOTE -
-    // public static void addEmployee(Employee employee) {
-    // employeeList.add(employee);
-    // }
-
-    // public static void removeEmployee(Employee employee) {
-    // employeeList.remove(employee);
-    // employeeCount--; // Decrement employee count when an employee is removed
-    // }
-
-    // public static List<Employee> getEmployees() {
-    // return new ArrayList<>(employeeList); // Return a copy of the employee list
-    // }
 
     public String getId() {
         return id;
@@ -82,7 +57,7 @@ public abstract class Employee implements EmployeeToString {
         Scanner scanner = new Scanner(System.in);
 
         while (phoneNumber == null || phoneNumber.length() != 10 || !phoneNumber.matches("\\d+")) {
-            System.out.println("Sai dinh dang vui long nhap lai:");
+            System.out.println("Sai dinh dang phoneNumber vui long nhap lai:");
             phoneNumber = scanner.nextLine().trim();
         }
         this.phoneNumber = phoneNumber;
@@ -96,14 +71,6 @@ public abstract class Employee implements EmployeeToString {
         this.position = position;
     }
 
-    public static double calculateSalaryByKPI(double basicSalary, int productSold) {
-        return basicSalary + (productSold * rewardPerProduct);
-    }
-
-    public static double calculateSalaryByCoefficient(double basicSalary, double coefficient) {
-        return basicSalary * coefficient;
-    }
-
     public double getSalary() {
         return salary;
     }
@@ -111,6 +78,14 @@ public abstract class Employee implements EmployeeToString {
     public void setSalary(double salary) {
         this.salary = salary;
     }
+
+    // public static double calculateSalaryByKPI(double basicSalary, int productSold) {
+    //     return basicSalary + (productSold * rewardPerProduct);
+    // }
+
+    // public static double calculateSalaryByCoefficient(double basicSalary, double coefficient) {
+    //     return basicSalary * coefficient;
+    // }
 
     public static int getEmployeeCount() {
         return employeeCount;
@@ -121,7 +96,7 @@ public abstract class Employee implements EmployeeToString {
         employeeCount = 0;
     }
 
-    // *DA HINH */
+    // *DA HINH */ hàm trừu tượng
     public abstract double calculateSalary();
 
     public abstract void toInfo();
@@ -129,8 +104,8 @@ public abstract class Employee implements EmployeeToString {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\n+------------------------+------------------------------+\n");
-        sb.append("|         Field          |            Value            |\n");
+        sb.append("+------------------------+------------------------------+\n");
+        sb.append("|         Field          |            Value             |\n");
         sb.append("+------------------------+------------------------------+\n");
         sb.append(String.format("| %-22s | %-28s |\n", "ID", getId()));
         sb.append(String.format("| %-22s | %-28s |\n", "Name", getName()));
@@ -141,11 +116,12 @@ public abstract class Employee implements EmployeeToString {
         return sb.toString();
     }
 
-    @SuppressWarnings("deprecation")
-    @Override
-    protected void finalize() throws Throwable {
-        super.finalize();
-        employeeCount--; // Giảm số lượng khi đối tượng bị thu hồi bởi Garbage Collector
-    }
+    // @SuppressWarnings("deprecation")
+    // @Override
+    // protected void finalize() throws Throwable {
+    // super.finalize();
+    // employeeCount--; // Giảm số lượng khi đối tượng bị thu hồi bởi Garbage
+    // Collector
+    // }
 
 }
